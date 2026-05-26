@@ -1,0 +1,4680 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Destapa Rapido — Oportunidad de Inversion 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;500;600;700;800;900&family=Nunito:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation@2.2.1/dist/chartjs-plugin-annotation.min.js"></script>
+<style>
+/* ============================================
+   CSS CUSTOM PROPERTIES
+   ============================================ */
+:root {
+  --bg-primary: #f7f8fc;
+  --bg-secondary: #eef0f7;
+  --bg-tertiary: #e4e7f1;
+  --glass-bg: rgba(255,255,255,0.75);
+  --glass-bg-hover: rgba(255,255,255,0.9);
+  --glass-border: rgba(0,0,0,0.07);
+  --glass-border-hover: rgba(0,0,0,0.14);
+  --gold: #1a5c2e;
+  --gold-bright: #22803d;
+  --gold-dark: #145224;
+  --teal: #0077cc;
+  --teal-dark: #005fa3;
+  --text-primary: #1a1f2e;
+  --text-secondary: #4a5568;
+  --text-muted: #8896a6;
+  --success: #16a34a;
+  --danger: #dc2626;
+  --gradient-gold: linear-gradient(135deg, #1a5c2e, #22803d);
+  --gradient-teal: linear-gradient(135deg, #0077cc, #005fa3);
+  --gradient-hero: linear-gradient(135deg, #1a5c2e 0%, #22803d 50%, #0077cc 100%);
+  --shadow-gold: 0 4px 24px rgba(26,92,46,0.12);
+  --shadow-teal: 0 4px 24px rgba(0,119,204,0.12);
+  --shadow-card: 0 4px 20px rgba(0,0,0,0.06);
+  --radius: 16px;
+  --radius-sm: 8px;
+  --radius-lg: 24px;
+  --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ============================================
+   RESET & BASE
+   ============================================ */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  scrollbar-width: thin;
+  scrollbar-color: #b0b8c4 var(--bg-primary);
+}
+
+body {
+  font-family: 'Nunito Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.7;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 16px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 800;
+  line-height: 1.15;
+}
+
+a { text-decoration: none; color: inherit; }
+
+/* ============================================
+   SCROLL PROGRESS BAR
+   ============================================ */
+#scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: var(--gradient-gold);
+  z-index: 10000;
+  transition: width 0.1s linear;
+  box-shadow: 0 0 10px rgba(26,92,46,0.5);
+}
+
+/* ============================================
+   DOT GRID BACKGROUND
+   ============================================ */
+.dot-grid {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+  background-image: radial-gradient(circle, rgba(0,0,0,0.04) 1px, transparent 1px);
+  background-size: 40px 40px;
+  animation: dotDrift 30s linear infinite;
+}
+
+@keyframes dotDrift {
+  0% { background-position: 0 0; }
+  100% { background-position: 40px 40px; }
+}
+
+/* ============================================
+   STICKY NAVIGATION
+   ============================================ */
+#main-nav {
+  position: fixed;
+  top: 3px;
+  left: 0;
+  width: 100%;
+  z-index: 9999;
+  background: rgba(247,248,252,0.88);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+  transition: var(--transition);
+  opacity: 0;
+  transform: translateY(-100%);
+}
+
+#main-nav.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.nav-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  height: 52px;
+  gap: 4px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.nav-inner::-webkit-scrollbar { display: none; }
+
+.nav-link {
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  padding: 6px 14px;
+  border-radius: 20px;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: var(--transition);
+  letter-spacing: 0.02em;
+}
+
+.nav-link:hover {
+  color: var(--text-primary);
+  background: rgba(0,0,0,0.04);
+}
+
+.nav-link.active {
+  color: #ffffff;
+  background: var(--gradient-gold);
+  font-weight: 600;
+}
+
+.nav-logo {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 800;
+  font-size: 1rem;
+  background: var(--gradient-gold);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-right: 16px;
+  white-space: nowrap;
+}
+
+/* ============================================
+   TICKER BAR
+   ============================================ */
+.ticker-bar {
+  background: linear-gradient(90deg, rgba(26,92,46,0.08), rgba(0,119,204,0.08), rgba(26,92,46,0.08));
+  border-top: 1px solid rgba(0,0,0,0.05);
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+  overflow: hidden;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.ticker-track {
+  display: flex;
+  animation: tickerScroll 40s linear infinite;
+  gap: 60px;
+  padding: 0 30px;
+}
+
+.ticker-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  white-space: nowrap;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+.ticker-value {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 700;
+  background: var(--gradient-gold);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.ticker-dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--gold);
+  opacity: 0.4;
+}
+
+@keyframes tickerScroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* ============================================
+   SECTION LAYOUT
+   ============================================ */
+section {
+  position: relative;
+  z-index: 1;
+  padding: 120px 24px;
+}
+
+.section-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section-label {
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.section-label::before {
+  content: '';
+  width: 24px;
+  height: 1px;
+  background: var(--gold);
+}
+
+.section-title {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 800;
+  margin-bottom: 20px;
+  letter-spacing: -0.02em;
+}
+
+.section-subtitle {
+  font-size: 1.15rem;
+  color: var(--text-secondary);
+  max-width: 700px;
+  line-height: 1.7;
+}
+
+.gradient-text {
+  background: var(--gradient-gold);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.teal-text {
+  color: var(--teal);
+}
+
+/* ============================================
+   GLASS CARD
+   ============================================ */
+.glass-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius);
+  padding: 32px;
+  transition: var(--transition);
+}
+
+.glass-card:hover {
+  background: var(--glass-bg-hover);
+  border-color: var(--glass-border-hover);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-card);
+}
+
+/* ============================================
+   ANIMATED GRADIENT BORDER
+   ============================================ */
+.gradient-border {
+  position: relative;
+  border: none !important;
+}
+
+.gradient-border::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(
+    var(--gradient-angle, 0deg),
+    var(--gold),
+    var(--teal),
+    var(--gold-bright),
+    var(--teal),
+    var(--gold)
+  );
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  -webkit-mask-composite: xor;
+  animation: rotateBorder 4s linear infinite;
+  pointer-events: none;
+}
+
+@property --gradient-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@keyframes rotateBorder {
+  0% { --gradient-angle: 0deg; }
+  100% { --gradient-angle: 360deg; }
+}
+
+/* Fallback for browsers that don't support @property */
+@supports not (background: paint(something)) {
+  .gradient-border::before {
+    animation: rotateBorderFallback 4s linear infinite;
+  }
+  @keyframes rotateBorderFallback {
+    0% { background: linear-gradient(0deg, var(--gold), var(--teal), var(--gold-bright), var(--teal), var(--gold)); }
+    25% { background: linear-gradient(90deg, var(--gold), var(--teal), var(--gold-bright), var(--teal), var(--gold)); }
+    50% { background: linear-gradient(180deg, var(--gold), var(--teal), var(--gold-bright), var(--teal), var(--gold)); }
+    75% { background: linear-gradient(270deg, var(--gold), var(--teal), var(--gold-bright), var(--teal), var(--gold)); }
+    100% { background: linear-gradient(360deg, var(--gold), var(--teal), var(--gold-bright), var(--teal), var(--gold)); }
+  }
+}
+
+/* ============================================
+   HERO SECTION
+   ============================================ */
+#hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 80px 24px 40px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.hero-bg::before {
+  content: '';
+  position: absolute;
+  width: 150%;
+  height: 150%;
+  top: -25%;
+  left: -25%;
+  background:
+    radial-gradient(ellipse 600px 600px at 20% 30%, rgba(26,92,46,0.08) 0%, transparent 70%),
+    radial-gradient(ellipse 500px 500px at 80% 20%, rgba(0,119,204,0.06) 0%, transparent 70%),
+    radial-gradient(ellipse 700px 700px at 50% 80%, rgba(26,92,46,0.04) 0%, transparent 70%),
+    radial-gradient(ellipse 400px 400px at 90% 70%, rgba(0,119,204,0.05) 0%, transparent 70%),
+    radial-gradient(ellipse 500px 500px at 10% 80%, rgba(34,128,61,0.04) 0%, transparent 70%);
+  animation: heroMesh 20s ease-in-out infinite;
+}
+
+.hero-bg::after {
+  content: '';
+  position: absolute;
+  width: 150%;
+  height: 150%;
+  top: -25%;
+  left: -25%;
+  background:
+    radial-gradient(ellipse 400px 400px at 70% 60%, rgba(26,92,46,0.08) 0%, transparent 70%),
+    radial-gradient(ellipse 600px 600px at 30% 50%, rgba(0,119,204,0.06) 0%, transparent 70%);
+  animation: heroMesh2 25s ease-in-out infinite;
+}
+
+@keyframes heroMesh {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  33% { transform: translate(2%, -3%) rotate(1deg); }
+  66% { transform: translate(-2%, 2%) rotate(-1deg); }
+}
+
+@keyframes heroMesh2 {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  33% { transform: translate(-3%, 2%) rotate(-0.5deg); }
+  66% { transform: translate(3%, -1%) rotate(0.5deg); }
+}
+
+.hero-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  padding: 8px 20px;
+  border: 1px solid rgba(26,92,46,0.2);
+  border-radius: 100px;
+  margin-bottom: 40px;
+  background: rgba(26,92,46,0.05);
+}
+
+.hero-tag-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--gold);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.8); }
+}
+
+.hero-title {
+  font-size: clamp(2.5rem, 6.5vw, 5rem);
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  max-width: 900px;
+  margin-bottom: 24px;
+  line-height: 1.05;
+}
+
+.hero-subtitle {
+  font-size: clamp(1.1rem, 2vw, 1.4rem);
+  color: var(--text-secondary);
+  max-width: 650px;
+  margin-bottom: 64px;
+  line-height: 1.6;
+}
+
+.hero-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  max-width: 900px;
+  width: 100%;
+}
+
+.hero-stat-card {
+  background: rgba(0,0,0,0.03);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(0,0,0,0.06);
+  border-radius: var(--radius);
+  padding: 32px 24px;
+  text-align: center;
+  transition: var(--transition);
+}
+
+.hero-stat-card:hover {
+  background: rgba(0,0,0,0.06);
+  border-color: rgba(0,0,0,0.10);
+  transform: translateY(-4px);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+}
+
+.hero-stat-value {
+  font-family: 'Nunito', sans-serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 900;
+  background: var(--gradient-gold);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.hero-stat-label {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.4;
+}
+
+.hero-scroll-hint {
+  position: absolute;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  animation: scrollBounce 2s ease-in-out infinite;
+}
+
+.scroll-line {
+  width: 1px;
+  height: 40px;
+  background: linear-gradient(to bottom, var(--gold), transparent);
+  animation: scrollLine 2s ease-in-out infinite;
+}
+
+@keyframes scrollBounce {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(8px); }
+}
+
+@keyframes scrollLine {
+  0% { opacity: 0; height: 0; }
+  50% { opacity: 1; height: 40px; }
+  100% { opacity: 0; height: 40px; }
+}
+
+/* ============================================
+   UNIT ECONOMICS (LA MAQUINA)
+   ============================================ */
+.machine-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  margin-top: 60px;
+}
+
+.machine-flow {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.flow-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 24px;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-sm);
+  transition: var(--transition);
+}
+
+.flow-item:hover {
+  background: var(--glass-bg-hover);
+  border-color: var(--glass-border-hover);
+}
+
+.flow-item-label {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+.flow-item-value {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.flow-item-value.income { color: var(--teal); }
+.flow-item-value.expense { color: var(--danger); }
+.flow-item-value.profit { color: var(--gold-bright); }
+
+.flow-divider {
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--gold), transparent);
+  margin: 8px 0;
+}
+
+.machine-highlight {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 24px;
+}
+
+.highlight-card {
+  text-align: center;
+  padding: 40px 32px;
+  border-radius: var(--radius);
+  background: rgba(26,92,46,0.05);
+  border: 1px solid rgba(26,92,46,0.15);
+}
+
+.highlight-big {
+  font-family: 'Nunito', sans-serif;
+  font-size: 3.5rem;
+  font-weight: 900;
+  background: var(--gradient-gold);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1;
+}
+
+.highlight-sub {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  margin-top: 8px;
+}
+
+.machine-bottom-message {
+  margin-top: 48px;
+  padding: 32px;
+  background: linear-gradient(135deg, rgba(26,92,46,0.06), rgba(0,119,204,0.04));
+  border: 1px solid rgba(26,92,46,0.12);
+  border-radius: var(--radius);
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: 500;
+  line-height: 1.6;
+}
+
+/* ============================================
+   MARKET SECTION
+   ============================================ */
+.market-segments {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  margin: 48px 0;
+}
+
+.segment-card {
+  padding: 28px 24px;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius);
+  transition: var(--transition);
+}
+
+.segment-card:hover {
+  background: var(--glass-bg-hover);
+  border-color: var(--glass-border-hover);
+  transform: translateY(-4px);
+}
+
+.segment-icon {
+  font-size: 1.6rem;
+  margin-bottom: 16px;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  background: linear-gradient(135deg, rgba(26,92,46,0.1), rgba(0,119,204,0.1));
+  border: 1px solid rgba(26,92,46,0.15);
+}
+
+.segment-name {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 700;
+  font-size: 1.05rem;
+  margin-bottom: 8px;
+}
+
+.segment-desc {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.market-chart-container {
+  margin-top: 48px;
+  padding: 32px;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius);
+}
+
+.market-insight {
+  margin-top: 40px;
+  padding: 28px 32px;
+  background: rgba(0,119,204,0.04);
+  border: 1px solid rgba(0,119,204,0.12);
+  border-radius: var(--radius);
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.insight-icon {
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(0,119,204,0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--teal);
+  font-family: 'Nunito', sans-serif;
+  font-weight: 800;
+  font-size: 1rem;
+}
+
+/* ============================================
+   COMPETITIVE ADVANTAGE
+   ============================================ */
+.platform-features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 16px;
+  margin: 48px 0;
+}
+
+.feature-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 18px 20px;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-sm);
+  font-size: 0.9rem;
+  transition: var(--transition);
+}
+
+.feature-item:hover {
+  background: var(--glass-bg-hover);
+  border-color: var(--glass-border-hover);
+}
+
+.feature-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--teal);
+  flex-shrink: 0;
+  box-shadow: 0 0 10px rgba(0,119,204,0.4);
+}
+
+.comparison-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin: 48px 0;
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--glass-border);
+}
+
+.comparison-table thead th {
+  background: rgba(26,92,46,0.08);
+  padding: 18px 24px;
+  text-align: left;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.comparison-table thead th:first-child {
+  color: var(--text-secondary);
+}
+
+.comparison-table thead th:nth-child(2) {
+  color: var(--text-muted);
+}
+
+.comparison-table thead th:nth-child(3) {
+  color: var(--gold);
+}
+
+.comparison-table tbody td {
+  padding: 16px 24px;
+  border-bottom: 1px solid rgba(0,0,0,0.03);
+  font-size: 0.9rem;
+  vertical-align: top;
+}
+
+.comparison-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.comparison-table tbody td:first-child {
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.comparison-table tbody td:nth-child(2) {
+  color: var(--text-muted);
+}
+
+.comparison-table tbody td:nth-child(3) {
+  color: var(--teal);
+  font-weight: 600;
+}
+
+.comparison-table tbody tr {
+  background: var(--glass-bg);
+  transition: var(--transition);
+}
+
+.comparison-table tbody tr:hover {
+  background: var(--glass-bg-hover);
+}
+
+.savings-card {
+  margin-top: 40px;
+  padding: 32px;
+  text-align: center;
+  background: linear-gradient(135deg, rgba(0,119,204,0.06), rgba(26,92,46,0.04));
+  border: 1px solid rgba(0,119,204,0.15);
+  border-radius: var(--radius);
+}
+
+.savings-value {
+  font-family: 'Nunito', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: var(--teal);
+  margin-bottom: 8px;
+}
+
+.savings-label {
+  color: var(--text-secondary);
+  font-size: 1rem;
+}
+
+/* ============================================
+   DEMAND VALIDATED
+   ============================================ */
+.demand-cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  margin-top: 48px;
+}
+
+.demand-card {
+  padding: 36px;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius);
+  transition: var(--transition);
+}
+
+.demand-card:hover {
+  background: var(--glass-bg-hover);
+  border-color: var(--glass-border-hover);
+}
+
+.demand-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.demand-card-title {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 700;
+  font-size: 1.15rem;
+}
+
+.demand-card-amount {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 800;
+  font-size: 1.5rem;
+  background: var(--gradient-gold);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.demand-card-body {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  line-height: 1.7;
+}
+
+.pipeline-list {
+  list-style: none;
+  margin-top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.pipeline-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 20px;
+  background: rgba(0,0,0,0.02);
+  border: 1px solid rgba(0,0,0,0.05);
+  border-radius: var(--radius-sm);
+}
+
+.pipeline-name {
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+.pipeline-detail {
+  color: var(--text-muted);
+  font-size: 0.8rem;
+}
+
+.pipeline-value {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 700;
+  color: var(--gold);
+  font-size: 0.95rem;
+  white-space: nowrap;
+}
+
+.demand-total {
+  margin-top: 40px;
+  padding: 28px;
+  text-align: center;
+  border-radius: var(--radius);
+  background: linear-gradient(135deg, rgba(26,92,46,0.08), rgba(0,119,204,0.06));
+  border: 1px solid rgba(26,92,46,0.15);
+}
+
+.demand-total-label {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.demand-total-value {
+  font-family: 'Nunito', sans-serif;
+  font-size: 3rem;
+  font-weight: 900;
+  background: var(--gradient-gold);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.demand-total-note {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin-top: 8px;
+}
+
+/* ============================================
+   SIMULATOR
+   ============================================ */
+#simulator {
+  background: linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-secondary) 50%, var(--bg-primary) 100%);
+}
+
+.sim-controls {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin: 48px 0;
+}
+
+.sim-slider-group {
+  padding: 24px;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius);
+}
+
+.sim-slider-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.sim-slider-label {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.sim-slider-value {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: var(--gold-bright);
+}
+
+/* Custom range slider */
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 6px;
+  background: rgba(0,0,0,0.06);
+  border-radius: 3px;
+  outline: none;
+  cursor: pointer;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--gradient-gold);
+  box-shadow: 0 0 16px rgba(26,92,46,0.4), 0 2px 8px rgba(0,0,0,0.3);
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+  transform: scale(1.2);
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--gradient-gold);
+  box-shadow: 0 0 16px rgba(26,92,46,0.4), 0 2px 8px rgba(0,0,0,0.3);
+  cursor: pointer;
+  border: none;
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+  height: 6px;
+  border-radius: 3px;
+}
+
+input[type="range"]::-moz-range-track {
+  height: 6px;
+  border-radius: 3px;
+  background: rgba(0,0,0,0.06);
+}
+
+.sim-results {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  margin-bottom: 48px;
+}
+
+.sim-panel {
+  padding: 36px;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius);
+}
+
+.sim-panel-title {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.sim-panel-title-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.sim-panel-title-dot.gold { background: var(--gold); }
+.sim-panel-title-dot.teal { background: var(--teal); }
+
+.sim-line {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(0,0,0,0.03);
+  font-size: 0.9rem;
+}
+
+.sim-line:last-child { border-bottom: none; }
+
+.sim-line-label { color: var(--text-secondary); }
+
+.sim-line-value {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 600;
+}
+
+.sim-line-clickable {
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border-radius: 6px;
+  padding: 6px 8px !important;
+  margin: 0 -8px;
+}
+.sim-line-clickable:hover {
+  background: rgba(0,119,204,0.06);
+  transform: translateX(4px);
+}
+.sim-info-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: rgba(0,119,204,0.1);
+  color: var(--teal);
+  font-size: 0.6rem;
+  font-weight: 700;
+  margin-left: 6px;
+  vertical-align: middle;
+}
+.flow-item-clickable {
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border-radius: 8px;
+}
+.flow-item-clickable:hover {
+  background: rgba(0,119,204,0.06);
+  transform: translateX(4px);
+}
+
+/* Insurance Modal Specific */
+.insurance-plans {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin-bottom: 20px;
+}
+.insurance-plan {
+  border: 2px solid rgba(0,0,0,0.08);
+  border-radius: 12px;
+  padding: 16px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  position: relative;
+}
+.insurance-plan:hover {
+  border-color: rgba(0,119,204,0.3);
+  background: rgba(0,119,204,0.02);
+}
+.insurance-plan.selected {
+  border-color: var(--teal);
+  background: rgba(0,119,204,0.05);
+  box-shadow: 0 0 0 3px rgba(0,119,204,0.1);
+}
+.insurance-plan.disabled-plan {
+  border-color: rgba(220,38,38,0.2);
+}
+.insurance-plan.disabled-plan.selected {
+  border-color: var(--danger);
+  background: rgba(220,38,38,0.04);
+  box-shadow: 0 0 0 3px rgba(220,38,38,0.1);
+}
+.insurance-plan-name {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+.insurance-plan-price {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: var(--teal);
+  margin-bottom: 6px;
+}
+.insurance-plan.disabled-plan .insurance-plan-price {
+  color: var(--danger);
+}
+.insurance-plan-desc {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+.insurance-plan-tag {
+  position: absolute;
+  top: -8px;
+  right: 12px;
+  background: var(--gradient-gold);
+  color: white;
+  font-size: 0.6rem;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.insurance-plan-check {
+  display: none;
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--teal);
+  color: white;
+  font-size: 0.75rem;
+  align-items: center;
+  justify-content: center;
+}
+.insurance-plan.selected .insurance-plan-check {
+  display: flex;
+}
+.insurance-plan-covers {
+  margin-top: 8px;
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+.insurance-plan-covers span {
+  display: block;
+}
+.insurance-volume-discount {
+  background: var(--bg-secondary);
+  border: 1px solid rgba(0,0,0,0.06);
+  border-radius: 10px;
+  padding: 14px 16px;
+  margin-bottom: 16px;
+}
+.insurance-volume-discount-title {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-secondary);
+  margin-bottom: 8px;
+}
+.insurance-discount-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.82rem;
+  padding: 4px 0;
+  color: var(--text-secondary);
+}
+.insurance-discount-row.active-discount {
+  color: var(--teal);
+  font-weight: 600;
+}
+
+/* Revenue Modal */
+.revenue-type-card {
+  background: var(--bg-secondary);
+  border: 1px solid rgba(0,0,0,0.06);
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 16px;
+}
+.revenue-type-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+.revenue-type-name {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--text-primary);
+}
+.revenue-type-tag {
+  font-size: 0.68rem;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.revenue-type-tag.mensual { background: rgba(0,119,204,0.1); color: var(--teal); }
+.revenue-type-tag.semanal { background: rgba(26,92,46,0.1); color: var(--gold); }
+.revenue-type-tag.diario { background: rgba(245,158,11,0.1); color: #d97706; }
+.revenue-inputs-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+.revenue-input-sm label {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin-bottom: 4px;
+}
+.revenue-input-sm input {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid rgba(0,0,0,0.1);
+  border-radius: 8px;
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 0.9rem;
+  color: var(--text-primary);
+  background: #fff;
+  outline: none;
+}
+.revenue-input-sm input:focus {
+  border-color: var(--teal);
+  box-shadow: 0 0 0 2px rgba(0,119,204,0.1);
+}
+.revenue-type-note {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  margin-top: 8px;
+  line-height: 1.5;
+}
+.revenue-result-box {
+  background: rgba(0,119,204,0.04);
+  border: 1px solid rgba(0,119,204,0.12);
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
+  margin-top: 16px;
+}
+.revenue-result-label {
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  margin-bottom: 6px;
+}
+.revenue-result-value {
+  font-family: 'Nunito', sans-serif;
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--teal);
+}
+.revenue-result-detail {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-top: 6px;
+}
+
+/* Modal */
+.cost-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 100000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.cost-modal-overlay.active {
+  display: flex;
+  opacity: 1;
+}
+.cost-modal {
+  background: #ffffff;
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 20px;
+  padding: 36px;
+  max-width: 920px;
+  width: 94%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.12);
+  transform: translateY(20px);
+  transition: transform 0.3s cubic-bezier(0.16,1,0.3,1);
+  position: relative;
+}
+.cost-modal-overlay.active .cost-modal {
+  transform: translateY(0);
+}
+.cost-modal-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid rgba(0,0,0,0.08);
+  background: var(--bg-primary);
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+.cost-modal-close:hover {
+  background: var(--danger);
+  color: white;
+  border-color: var(--danger);
+}
+.cost-modal-title {
+  font-family: 'Nunito', sans-serif;
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+}
+.cost-modal-desc {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+.cost-modal-formula {
+  background: var(--bg-secondary);
+  border: 1px solid rgba(0,0,0,0.06);
+  border-radius: 10px;
+  padding: 16px;
+  margin-bottom: 20px;
+  font-family: 'Nunito Sans', monospace;
+  font-size: 0.85rem;
+  color: var(--text-primary);
+}
+.cost-modal-formula strong {
+  color: var(--gold);
+}
+.cost-modal-input-group {
+  margin-bottom: 16px;
+}
+.cost-modal-input-group label {
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin-bottom: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.cost-modal-input {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid rgba(0,0,0,0.1);
+  border-radius: 10px;
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 1rem;
+  color: var(--text-primary);
+  background: #ffffff;
+  outline: none;
+  transition: border-color 0.2s;
+}
+.cost-modal-input:focus {
+  border-color: var(--teal);
+  box-shadow: 0 0 0 3px rgba(0,119,204,0.1);
+}
+.cost-modal-result {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 16px;
+  background: rgba(0,119,204,0.05);
+  border-radius: 10px;
+  margin-top: 16px;
+  font-weight: 600;
+}
+.cost-modal-result-label {
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+}
+.cost-modal-result-value {
+  color: var(--teal);
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+.cost-modal-apply {
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 10px;
+  background: var(--gradient-gold);
+  color: white;
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 16px;
+  transition: all 0.2s;
+}
+.cost-modal-apply:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(26,92,46,0.3);
+}
+.cost-modal-note {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-top: 12px;
+  line-height: 1.6;
+  font-style: italic;
+}
+
+.sim-total-line {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 0;
+  margin-top: 8px;
+  border-top: 1px solid rgba(26,92,46,0.2);
+  font-weight: 700;
+}
+
+.sim-total-value {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 800;
+  font-size: 1.6rem;
+}
+
+.sim-total-value.gold {
+  background: var(--gradient-gold);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.sim-total-value.teal { color: var(--teal); }
+.sim-total-value.positive { color: var(--teal); }
+.sim-total-value.negative { color: var(--danger); }
+
+.sim-big-result {
+  text-align: center;
+  padding: 24px;
+  margin-top: 16px;
+  background: rgba(0,119,204,0.04);
+  border: 1px solid rgba(0,119,204,0.12);
+  border-radius: var(--radius-sm);
+}
+
+.sim-big-result-value {
+  font-family: 'Nunito', sans-serif;
+  font-size: 2.2rem;
+  font-weight: 900;
+  line-height: 1.2;
+}
+
+.sim-big-result-label {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  margin-top: 4px;
+}
+
+.sim-roi-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.sim-roi-item {
+  text-align: center;
+  padding: 16px 12px;
+  background: rgba(0,0,0,0.02);
+  border: 1px solid rgba(0,0,0,0.05);
+  border-radius: var(--radius-sm);
+}
+
+.sim-roi-value {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 800;
+  font-size: 1.3rem;
+  color: var(--gold-bright);
+}
+
+.sim-roi-label {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  margin-top: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.sim-chart-container {
+  padding: 32px;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius);
+  margin-bottom: 32px;
+}
+
+.sim-chart-container h3 {
+  font-family: 'Nunito', sans-serif;
+  font-size: 1.1rem;
+  margin-bottom: 24px;
+  color: var(--text-secondary);
+}
+
+.sim-chart-wrapper {
+  height: 350px;
+  position: relative;
+}
+
+.scenario-cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.scenario-card {
+  padding: 20px;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius);
+  text-align: center;
+  cursor: pointer;
+  transition: var(--transition);
+  user-select: none;
+}
+
+.scenario-card:hover {
+  background: var(--glass-bg-hover);
+  border-color: rgba(26,92,46,0.2);
+  transform: translateY(-2px);
+}
+
+.scenario-card.active {
+  border-color: var(--gold);
+  background: rgba(26,92,46,0.06);
+}
+
+.scenario-name {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 700;
+  font-size: 0.95rem;
+  margin-bottom: 4px;
+}
+
+.scenario-desc {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+/* ============================================
+   SCENARIOS COMPARED
+   ============================================ */
+.scenarios-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin: 48px 0;
+}
+
+.scenario-col {
+  padding: 32px 24px;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius);
+  text-align: center;
+  transition: var(--transition);
+}
+
+.scenario-col.recommended {
+  border-color: rgba(26,92,46,0.3);
+  background: rgba(26,92,46,0.04);
+}
+
+.scenario-col:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-card);
+}
+
+.scenario-badge {
+  display: inline-block;
+  font-size: 0.65rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 4px 12px;
+  border-radius: 100px;
+  margin-bottom: 16px;
+  background: rgba(26,92,46,0.12);
+  color: var(--gold);
+}
+
+.scenario-col-name {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 800;
+  font-size: 1.3rem;
+  margin-bottom: 4px;
+}
+
+.scenario-col-units {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-bottom: 24px;
+}
+
+.scenario-metric {
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(0,0,0,0.03);
+}
+
+.scenario-metric:last-child { border-bottom: none; }
+
+.scenario-metric-label {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-bottom: 4px;
+}
+
+.scenario-metric-value {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 700;
+  font-size: 1.05rem;
+}
+
+.scenario-metric-value.gold { color: var(--gold-bright); }
+.scenario-metric-value.teal { color: var(--teal); }
+
+.scenarios-chart-container {
+  padding: 32px;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius);
+}
+
+.scenarios-chart-container h3 {
+  font-family: 'Nunito', sans-serif;
+  font-size: 1.1rem;
+  margin-bottom: 24px;
+  color: var(--text-secondary);
+}
+
+.scenarios-chart-wrapper {
+  height: 350px;
+  position: relative;
+}
+
+/* ============================================
+   ACQUISITION STRATEGY
+   ============================================ */
+.acquisition-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin: 48px 0;
+}
+
+.acq-card {
+  padding: 32px;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius);
+  transition: var(--transition);
+}
+
+.acq-card:hover {
+  background: var(--glass-bg-hover);
+  transform: translateY(-2px);
+}
+
+.acq-card-tag {
+  display: inline-block;
+  font-size: 0.65rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 4px 12px;
+  border-radius: 100px;
+  margin-bottom: 16px;
+}
+
+.acq-card-tag.used {
+  background: rgba(0,119,204,0.12);
+  color: var(--teal);
+}
+
+.acq-card-tag.new {
+  background: rgba(26,92,46,0.12);
+  color: var(--gold);
+}
+
+.acq-card-tag.import {
+  background: rgba(100,130,200,0.12);
+  color: #5b8def;
+}
+
+.acq-card-title {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin-bottom: 16px;
+}
+
+.acq-detail {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  border-bottom: 1px solid rgba(0,0,0,0.03);
+}
+
+.acq-detail:last-child { border-bottom: none; }
+
+.acq-detail-value {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.acq-total {
+  margin-top: 24px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.acq-total-card {
+  text-align: center;
+  padding: 28px 20px;
+  border-radius: var(--radius);
+}
+
+.acq-total-card.cost {
+  background: rgba(26,92,46,0.05);
+  border: 1px solid rgba(26,92,46,0.12);
+}
+
+.acq-total-card.savings {
+  background: rgba(0,119,204,0.05);
+  border: 1px solid rgba(0,119,204,0.12);
+}
+
+.acq-total-value {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 900;
+  font-size: 2rem;
+}
+
+.acq-total-value.gold { color: var(--gold-bright); }
+.acq-total-value.teal { color: var(--teal); }
+
+.acq-total-label {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  margin-top: 4px;
+}
+
+.acq-timeline {
+  margin-top: 40px;
+  padding: 32px;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius);
+}
+
+.timeline-bar {
+  display: flex;
+  height: 8px;
+  border-radius: 4px;
+  overflow: hidden;
+  margin: 20px 0 16px;
+}
+
+.timeline-segment {
+  transition: var(--transition);
+}
+
+.timeline-labels {
+  display: flex;
+  justify-content: space-between;
+}
+
+.timeline-label {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+/* ============================================
+   FINANCIAL PROJECTION
+   ============================================ */
+.projection-chart-container {
+  padding: 32px;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius);
+  margin: 48px 0;
+}
+
+.projection-chart-wrapper {
+  height: 400px;
+  position: relative;
+}
+
+.year-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin: 32px 0;
+}
+
+.year-card {
+  padding: 32px;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius);
+  transition: var(--transition);
+}
+
+.year-card:hover {
+  background: var(--glass-bg-hover);
+  transform: translateY(-2px);
+}
+
+.year-card-year {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 800;
+  font-size: 1.3rem;
+  margin-bottom: 4px;
+}
+
+.year-card-units {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-bottom: 20px;
+}
+
+.year-metric {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  font-size: 0.85rem;
+  border-bottom: 1px solid rgba(0,0,0,0.03);
+}
+
+.year-metric:last-child { border-bottom: none; }
+
+.year-metric-label { color: var(--text-secondary); }
+.year-metric-value {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 700;
+}
+
+.year-metric-value.gold { color: var(--gold-bright); }
+.year-metric-value.teal { color: var(--teal); }
+
+.cumulative-box {
+  margin-top: 32px;
+  padding: 40px;
+  border-radius: var(--radius);
+  background: linear-gradient(135deg, rgba(26,92,46,0.06), rgba(0,119,204,0.04));
+  border: 1px solid rgba(26,92,46,0.15);
+}
+
+.cumulative-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  text-align: center;
+}
+
+.cumulative-item-value {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 900;
+  font-size: 2.2rem;
+  line-height: 1;
+}
+
+.cumulative-item-value.gold {
+  background: var(--gradient-gold);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.cumulative-item-value.teal { color: var(--teal); }
+
+.cumulative-item-label {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  margin-top: 8px;
+}
+
+/* ============================================
+   TEAM & OPERATION
+   ============================================ */
+.team-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  margin: 48px 0;
+}
+
+.team-panel {
+  padding: 36px;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius);
+}
+
+.team-panel-title {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.team-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.team-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.team-check {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.65rem;
+  margin-top: 2px;
+}
+
+.team-check.done {
+  background: rgba(0,119,204,0.12);
+  color: var(--teal);
+}
+
+.team-check.todo {
+  background: rgba(26,92,46,0.12);
+  color: var(--gold);
+}
+
+.allocation-chart-container {
+  padding: 32px;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius);
+}
+
+.allocation-chart-wrapper {
+  height: 320px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ============================================
+   CTA SECTION
+   ============================================ */
+#cta {
+  text-align: center;
+  padding: 120px 24px 80px;
+  position: relative;
+  overflow: hidden;
+}
+
+#cta::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 800px 400px at 50% 50%, rgba(26,92,46,0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.cta-amount {
+  font-family: 'Nunito', sans-serif;
+  font-size: clamp(3rem, 7vw, 5.5rem);
+  font-weight: 900;
+  background: var(--gradient-gold);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 16px;
+  line-height: 1;
+}
+
+.cta-desc {
+  font-size: 1.2rem;
+  color: var(--text-secondary);
+  max-width: 600px;
+  margin: 0 auto 48px;
+}
+
+.cta-returns {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  max-width: 800px;
+  margin: 0 auto 48px;
+}
+
+.cta-return-card {
+  padding: 28px 20px;
+  border-radius: var(--radius);
+  background: rgba(26,92,46,0.06);
+  border: 1px solid rgba(26,92,46,0.2);
+}
+
+.cta-return-value {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 900;
+  font-size: 1.8rem;
+  background: var(--gradient-gold);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 4px;
+}
+
+.cta-return-label {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
+.cta-projection {
+  font-family: 'Nunito', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--teal);
+  margin-bottom: 48px;
+}
+
+.cta-contact-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  padding: 24px;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius);
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.cta-contact-item {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.cta-contact-item strong {
+  color: var(--text-primary);
+}
+
+.cta-contact-dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--gold);
+  opacity: 0.4;
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+footer {
+  text-align: center;
+  padding: 40px 24px;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  border-top: 1px solid rgba(0,0,0,0.05);
+  line-height: 1.7;
+}
+
+/* ============================================
+   ANIMATIONS
+   ============================================ */
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.fade-in-left {
+  opacity: 0;
+  transform: translateX(-30px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.fade-in-left.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.fade-in-right {
+  opacity: 0;
+  transform: translateX(30px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.fade-in-right.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.stagger-1 { transition-delay: 0.1s; }
+.stagger-2 { transition-delay: 0.2s; }
+.stagger-3 { transition-delay: 0.3s; }
+.stagger-4 { transition-delay: 0.4s; }
+.stagger-5 { transition-delay: 0.5s; }
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 1024px) {
+  .hero-cards { grid-template-columns: 1fr; max-width: 400px; }
+  .machine-grid { grid-template-columns: 1fr; }
+  .sim-controls { grid-template-columns: 1fr; }
+  .sim-results { grid-template-columns: 1fr; }
+  .scenarios-grid { grid-template-columns: repeat(2, 1fr); }
+  .scenario-cards { grid-template-columns: repeat(2, 1fr); }
+  .acquisition-grid { grid-template-columns: 1fr; }
+  .year-cards { grid-template-columns: 1fr; }
+  .cumulative-grid { grid-template-columns: 1fr; gap: 20px; }
+  .team-grid { grid-template-columns: 1fr; }
+  .cta-returns { grid-template-columns: 1fr; max-width: 300px; }
+  .acq-total { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 768px) {
+  section { padding: 80px 16px; }
+  .hero-cards { grid-template-columns: 1fr; }
+  .scenarios-grid { grid-template-columns: 1fr; }
+  .scenario-cards { grid-template-columns: 1fr; }
+  .market-segments { grid-template-columns: 1fr; }
+  .platform-features { grid-template-columns: 1fr; }
+  .nav-inner { gap: 2px; }
+  .nav-link { font-size: 0.65rem; padding: 5px 10px; }
+  .sim-roi-row { grid-template-columns: 1fr; }
+  .cta-contact-bar { flex-direction: column; gap: 16px; }
+  .cta-contact-dot { display: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- Scroll Progress Bar -->
+<div id="scroll-progress"></div>
+
+<!-- Dot Grid Background -->
+<div class="dot-grid"></div>
+
+<!-- Sticky Navigation -->
+<nav id="main-nav">
+  <div class="nav-inner">
+    <span class="nav-logo">Destapa Rapido</span>
+    <a class="nav-link" data-target="hero">Inicio</a>
+    <a class="nav-link" data-target="la-maquina">Unit Economics</a>
+    <a class="nav-link" data-target="mercado">Mercado</a>
+    <a class="nav-link" data-target="ventaja">Ventaja</a>
+    <a class="nav-link" data-target="demanda">Demanda</a>
+    <a class="nav-link" data-target="simulator">Simulador</a>
+    <a class="nav-link" data-target="escenarios">Escenarios</a>
+    <a class="nav-link" data-target="adquisicion">Compra</a>
+    <a class="nav-link" data-target="proyeccion">Proyeccion</a>
+    <a class="nav-link" data-target="equipo">Equipo</a>
+    <a class="nav-link" data-target="cta">Inversion</a>
+  </div>
+</nav>
+
+<!-- ============================================
+     SECTION 1: HERO
+     ============================================ -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-tag">
+    <span class="hero-tag-dot"></span>
+    Oportunidad de inversion — Chile 2026
+  </div>
+  <h1 class="hero-title fade-in">
+    Cada baño quimico genera<br>
+    <span class="gradient-text">$170.000 al mes.</span>
+  </h1>
+  <p class="hero-subtitle fade-in stagger-1">
+    Tenemos la tecnologia. Tenemos la demanda. Solo falta la flota.
+  </p>
+  <div class="hero-cards">
+    <div class="hero-stat-card fade-in stagger-2">
+      <div class="hero-stat-value" data-count="97800000" data-prefix="$" data-suffix="M" data-display="97.8">$97.8M</div>
+      <div class="hero-stat-label">En contratos que no pudimos atender</div>
+    </div>
+    <div class="hero-stat-card fade-in stagger-3">
+      <div class="hero-stat-value" data-count="9500000" data-prefix="+$" data-suffix="M/mes" data-display="9.5">+$9.5M/mes</div>
+      <div class="hero-stat-label">Demanda activa esperando capacidad</div>
+    </div>
+    <div class="hero-stat-card fade-in stagger-4">
+      <div class="hero-stat-value" style="font-size:2.2rem;">Unica</div>
+      <div class="hero-stat-label">Empresa del rubro con gestion digital en tiempo real</div>
+    </div>
+  </div>
+  <div class="hero-scroll-hint">
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- Ticker Bar -->
+<div class="ticker-bar">
+  <div class="ticker-track" id="ticker-track">
+    <div class="ticker-item"><span class="ticker-value">$170K/mes</span> ingreso por baño</div>
+    <div class="ticker-dot"></div>
+    <div class="ticker-item"><span class="ticker-value">76%</span> ocupacion promedio</div>
+    <div class="ticker-dot"></div>
+    <div class="ticker-item"><span class="ticker-value">$93.5K/mes</span> utilidad neta por unidad</div>
+    <div class="ticker-dot"></div>
+    <div class="ticker-item"><span class="ticker-value">5-8 meses</span> payback por baño</div>
+    <div class="ticker-dot"></div>
+    <div class="ticker-item"><span class="ticker-value">8-10 anos</span> vida util</div>
+    <div class="ticker-dot"></div>
+    <div class="ticker-item"><span class="ticker-value">+$100M</span> demanda validada</div>
+    <div class="ticker-dot"></div>
+    <div class="ticker-item"><span class="ticker-value">0</span> competidores digitales</div>
+    <div class="ticker-dot"></div>
+    <div class="ticker-item"><span class="ticker-value">$170K/mes</span> ingreso por baño</div>
+    <div class="ticker-dot"></div>
+    <div class="ticker-item"><span class="ticker-value">76%</span> ocupacion promedio</div>
+    <div class="ticker-dot"></div>
+    <div class="ticker-item"><span class="ticker-value">$93.5K/mes</span> utilidad neta por unidad</div>
+    <div class="ticker-dot"></div>
+    <div class="ticker-item"><span class="ticker-value">5-8 meses</span> payback por baño</div>
+    <div class="ticker-dot"></div>
+    <div class="ticker-item"><span class="ticker-value">8-10 anos</span> vida util</div>
+    <div class="ticker-dot"></div>
+    <div class="ticker-item"><span class="ticker-value">+$100M</span> demanda validada</div>
+    <div class="ticker-dot"></div>
+    <div class="ticker-item"><span class="ticker-value">0</span> competidores digitales</div>
+    <div class="ticker-dot"></div>
+  </div>
+</div>
+
+<!-- ============================================
+     SECTION 2: LA MAQUINA — Unit Economics
+     ============================================ -->
+<section id="la-maquina">
+  <div class="section-inner">
+    <div class="section-label fade-in">Unit Economics</div>
+    <h2 class="section-title fade-in">Un baño. <span class="gradient-text">Una maquina de ingresos.</span></h2>
+    <p class="section-subtitle fade-in stagger-1">Cada unidad se paga sola en menos de 8 meses. Despues, es utilidad pura durante 8+ anos de vida util.</p>
+
+    <div class="machine-grid">
+      <div class="machine-flow fade-in-left">
+        <div class="flow-item">
+          <span class="flow-item-label">Inversion por unidad</span>
+          <span class="flow-item-value">$520.000 – $700.000</span>
+        </div>
+        <div class="flow-item">
+          <span class="flow-item-label">Ingreso mensual promedio</span>
+          <span class="flow-item-value income">+$170.000</span>
+        </div>
+        <div class="flow-divider"></div>
+        <div class="flow-item">
+          <span class="flow-item-label">Bencina</span>
+          <span class="flow-item-value expense">-$35.000</span>
+        </div>
+        <div class="flow-item">
+          <span class="flow-item-label">Limpiafosas proporcional</span>
+          <span class="flow-item-value expense">-$26.500</span>
+        </div>
+        <div class="flow-item flow-item-clickable" onclick="openInsuranceModal()" style="cursor:pointer;">
+          <span class="flow-item-label">Seguro por unidad <span class="sim-info-icon">?</span></span>
+          <span class="flow-item-value expense" id="flowInsurance">-$1.531</span>
+        </div>
+        <div class="flow-divider"></div>
+        <div class="flow-item" style="border-color: rgba(26,92,46,0.15); background: rgba(26,92,46,0.04);">
+          <span class="flow-item-label" style="font-weight:600; color: var(--text-primary);">Margen neto por baño</span>
+          <span class="flow-item-value profit">+$106.969/mes</span>
+        </div>
+      </div>
+
+      <div class="machine-highlight fade-in-right">
+        <div class="highlight-card gradient-border">
+          <div class="highlight-big" data-count="49" data-suffix=" – 6.5" data-display="4.9">4.9 – 6.5</div>
+          <div class="highlight-sub">meses de payback</div>
+        </div>
+        <div class="highlight-card" style="background: rgba(0,119,204,0.05); border-color: rgba(0,119,204,0.15);">
+          <div class="highlight-big" style="background: var(--gradient-teal); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">$1.283.628</div>
+          <div class="highlight-sub">ingreso neto anual por baño</div>
+        </div>
+        <div class="highlight-card">
+          <div class="highlight-big">83% – 143%</div>
+          <div class="highlight-sub">ROI en el primer ano</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="machine-bottom-message fade-in">
+      Con nuestra plataforma SaaS y marketing digital constante, mantenemos una <span class="gradient-text" style="font-weight:700;">ocupacion del 76%+</span>, muy por encima del promedio de la industria (55-65%). Cada baño se paga solo y luego genera utilidad pura por 8+ anos.
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     SECTION 3: EL MERCADO
+     ============================================ -->
+<section id="mercado" style="background: linear-gradient(180deg, var(--bg-primary), var(--bg-secondary), var(--bg-primary));">
+  <div class="section-inner">
+    <div class="section-label fade-in">Mercado</div>
+    <h2 class="section-title fade-in">Un mercado de alta demanda<br><span class="gradient-text">con operadores del siglo pasado.</span></h2>
+    <p class="section-subtitle fade-in stagger-1">Los 5 mayores operadores del pais aun gestionan con cuadernos y llamadas telefonicas. Nosotros tenemos la unica plataforma digital del rubro.</p>
+
+    <div class="market-segments">
+      <div class="segment-card fade-in stagger-1">
+        <div class="segment-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2"><path d="M3 21h18M9 21V10l-3 1V21M15 21V6l3-1v16M12 21V3"/></svg>
+        </div>
+        <div class="segment-name">Construccion</div>
+        <div class="segment-desc">Obligatorio por normativa MINSAL. +1.200 permisos activos solo en Santiago.</div>
+      </div>
+      <div class="segment-card fade-in stagger-2">
+        <div class="segment-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        </div>
+        <div class="segment-name">Eventos</div>
+        <div class="segment-desc">Bodas, corporativos, festivales. Crecimiento 15-20% anual.</div>
+      </div>
+      <div class="segment-card fade-in stagger-3">
+        <div class="segment-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+        </div>
+        <div class="segment-name">Municipal / Gobierno</div>
+        <div class="segment-desc">Ferias, plazas, obras publicas. Requiere propuestas formales y visitas a instalaciones.</div>
+      </div>
+      <div class="segment-card fade-in stagger-4">
+        <div class="segment-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <div class="segment-name">Agroindustria</div>
+        <div class="segment-desc">Temporadas altas, alto volumen: 25-50 unidades por cliente.</div>
+      </div>
+      <div class="segment-card fade-in stagger-5">
+        <div class="segment-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        </div>
+        <div class="segment-name">Mineria</div>
+        <div class="segment-desc">Precios premium, ubicaciones remotas. Contratos de largo plazo.</div>
+      </div>
+    </div>
+
+    <div class="market-chart-container fade-in">
+      <h3 style="font-family:'Nunito',sans-serif; font-size:1rem; color:var(--text-secondary); margin-bottom:20px;">Tamano estimado por segmento (potencial mensual CLP)</h3>
+      <div style="height:280px; position:relative;">
+        <canvas id="marketChart"></canvas>
+      </div>
+    </div>
+
+    <div class="market-insight fade-in">
+      <div class="insight-icon">!</div>
+      <div>
+        <strong style="color:var(--text-primary);">Ventaja clave:</strong>
+        <span style="color:var(--text-secondary);"> Mientras los operadores tradicionales dependen de referidos y relaciones personales, nosotros generamos demanda activa con Google Ads, posicionamiento web y canal WhatsApp automatizado. Por eso mantenemos 76%+ de ocupacion versus el 55-65% de la industria.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     SECTION 4: VENTAJA COMPETITIVA
+     ============================================ -->
+<section id="ventaja">
+  <div class="section-inner">
+    <div class="section-label fade-in">Ventaja Competitiva</div>
+    <h2 class="section-title fade-in">La unica empresa del rubro<br><span class="gradient-text">con gestion digital.</span></h2>
+    <p class="section-subtitle fade-in stagger-1">Nuestra plataforma SaaS propietaria (app.destaperapido.cl) nos da una ventaja operativa que ningun competidor puede replicar rapidamente.</p>
+
+    <div class="platform-features">
+      <div class="feature-item fade-in stagger-1"><span class="feature-dot"></span>Panel de control en tiempo real</div>
+      <div class="feature-item fade-in stagger-1"><span class="feature-dot"></span>Tracking de cada unidad con estado actual</div>
+      <div class="feature-item fade-in stagger-2"><span class="feature-dot"></span>Calendario de mantenciones automatizado</div>
+      <div class="feature-item fade-in stagger-2"><span class="feature-dot"></span>Optimizacion de rutas por zona</div>
+      <div class="feature-item fade-in stagger-3"><span class="feature-dot"></span>Notificaciones automaticas a clientes</div>
+      <div class="feature-item fade-in stagger-3"><span class="feature-dot"></span>Sistema de facturacion integrado</div>
+      <div class="feature-item fade-in stagger-4"><span class="feature-dot"></span>Canal WhatsApp con respuesta en minutos</div>
+      <div class="feature-item fade-in stagger-4"><span class="feature-dot"></span>Reemplazo mismo dia ante fallas</div>
+    </div>
+
+    <div class="fade-in" style="overflow-x:auto;">
+      <table class="comparison-table">
+        <thead>
+          <tr>
+            <th>Factor</th>
+            <th>Industria actual</th>
+            <th>Destapa Rapido</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Gestion operativa</td>
+            <td>Cuaderno / Excel</td>
+            <td>Panel SaaS tiempo real</td>
+          </tr>
+          <tr>
+            <td>Respuesta a clientes</td>
+            <td>Horas / dias</td>
+            <td>Minutos (WhatsApp + auto)</td>
+          </tr>
+          <tr>
+            <td>Optimizacion de rutas</td>
+            <td>Ninguna</td>
+            <td>Por zona, ahorro 15-20% combustible</td>
+          </tr>
+          <tr>
+            <td>Escalabilidad</td>
+            <td>Lineal (mas gente = mas costo)</td>
+            <td>Logaritmica (sistema escala sin costo)</td>
+          </tr>
+          <tr>
+            <td>Ocupacion promedio</td>
+            <td>55-65%</td>
+            <td>76%+ (marketing digital constante)</td>
+          </tr>
+          <tr>
+            <td>Reemplazo por falla</td>
+            <td>24-48 hrs</td>
+            <td>Mismo dia</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="savings-card fade-in gradient-border">
+      <div class="savings-value">$800.000 – $1.200.000/mes</div>
+      <div class="savings-label">Ahorro operativo del sistema SaaS en una flota de 150+ baños</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     SECTION 5: DEMANDA VALIDADA
+     ============================================ -->
+<section id="demanda" style="background: linear-gradient(180deg, var(--bg-primary), var(--bg-secondary), var(--bg-primary));">
+  <div class="section-inner">
+    <div class="section-label fade-in">Demanda Validada</div>
+    <h2 class="section-title fade-in">La demanda existe.<br><span class="gradient-text">Solo necesitamos la capacidad.</span></h2>
+    <p class="section-subtitle fade-in stagger-1">No es un problema de demanda. Es un problema de capacidad. Cada contrato perdido es evidencia directa de que el mercado esta esperando.</p>
+
+    <div class="demand-cards">
+      <div class="demand-card fade-in gradient-border">
+        <div class="demand-card-header">
+          <div class="demand-card-title">Municipalidad de San Joaquin</div>
+          <div class="demand-card-amount">$97.8M</div>
+        </div>
+        <div class="demand-card-body">
+          Contrato por 6 meses. 4.316 baños-dia. Incluia 3 operaciones diarias de mantencion y panel digital exclusivo para la municipalidad. No pudimos atender porque requerian visita a instalaciones (bodega y showroom) que aun no tenemos. <strong style="color:var(--gold-bright);">Con la inversion, este tipo de contrato es nuestro.</strong>
+        </div>
+      </div>
+
+      <div class="demand-card fade-in">
+        <div class="demand-card-header">
+          <div class="demand-card-title">Pipeline activo de contratos</div>
+          <div class="demand-card-amount">+$9.5M/mes</div>
+        </div>
+        <div class="demand-card-body">
+          Contratos en negociacion que requieren capacidad de flota:
+          <ul class="pipeline-list">
+            <li class="pipeline-item">
+              <div>
+                <div class="pipeline-name">Metro Cerrillos (3 estaciones)</div>
+                <div class="pipeline-detail">30 baños, hasta 2028</div>
+              </div>
+              <div class="pipeline-value">$4M/mes</div>
+            </li>
+            <li class="pipeline-item">
+              <div>
+                <div class="pipeline-name">Fundo Santa Adela</div>
+                <div class="pipeline-detail">25 baños, 12 meses</div>
+              </div>
+              <div class="pipeline-value">$2.25M/mes</div>
+            </li>
+            <li class="pipeline-item">
+              <div>
+                <div class="pipeline-name">Proyecto inmobiliario Maipu</div>
+                <div class="pipeline-detail">8 baños, 2 anos</div>
+              </div>
+              <div class="pipeline-value">$1.5M/mes</div>
+            </li>
+            <li class="pipeline-item">
+              <div>
+                <div class="pipeline-name">Municipalidad de Valparaiso</div>
+                <div class="pipeline-detail">12 baños, licitacion activa</div>
+              </div>
+              <div class="pipeline-value">$1.75M/mes</div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="demand-card fade-in">
+        <div class="demand-card-header">
+          <div class="demand-card-title">Evento Curacavi</div>
+          <div class="demand-card-amount">$1.4M</div>
+        </div>
+        <div class="demand-card-body">
+          Contrato perdido porque nuestras unidades actuales no cumplian con los estandares de calidad del evento. <strong style="color:var(--gold-bright);">Con baños nuevos, este segmento premium se abre completamente.</strong>
+        </div>
+      </div>
+    </div>
+
+    <div class="demand-total fade-in">
+      <div class="demand-total-label">Demanda total validada</div>
+      <div class="demand-total-value" data-count="100000000" data-prefix="+$" data-suffix="M CLP" data-display="100">+$100M CLP</div>
+      <div class="demand-total-note">No es un problema de demanda. Es un problema de capacidad.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     SECTION 6: SIMULADOR DE INVERSION
+     ============================================ -->
+<section id="simulator">
+  <div class="section-inner">
+    <div class="section-label fade-in">Simulador Interactivo</div>
+    <h2 class="section-title fade-in">Cuanto puedes ganar?<br><span class="gradient-text">Simulalo tu mismo.</span></h2>
+    <p class="section-subtitle fade-in stagger-1">Ajusta los parametros y observa en tiempo real como se comporta tu inversion.</p>
+
+    <!-- Sliders -->
+    <div class="sim-controls fade-in">
+      <div class="sim-slider-group">
+        <div class="sim-slider-header">
+          <span class="sim-slider-label">Cantidad de baños</span>
+          <span class="sim-slider-value" id="sliderQtyVal">100</span>
+        </div>
+        <input type="range" id="sliderQty" min="100" max="500" value="150" step="10">
+      </div>
+      <div class="sim-slider-group">
+        <div class="sim-slider-header">
+          <span class="sim-slider-label">Costo promedio por baño</span>
+          <span class="sim-slider-value" id="sliderCostVal">$650.000</span>
+        </div>
+        <input type="range" id="sliderCost" min="500000" max="900000" value="650000" step="10000">
+      </div>
+      <div class="sim-slider-group">
+        <div class="sim-slider-header">
+          <span class="sim-slider-label">Ingreso promedio por baño/mes <span class="sim-info-icon" style="cursor:pointer;" onclick="openRevenueModal()">?</span></span>
+          <span class="sim-slider-value" id="sliderPriceVal">$170.000</span>
+        </div>
+        <input type="range" id="sliderPrice" min="160000" max="400000" value="170000" step="5000">
+        <div style="font-size:0.68rem; color:var(--text-muted); margin-top:4px; cursor:pointer;" onclick="openRevenueModal()">Click aqui para configurar por tipo de servicio (mensual, semanal, diario)</div>
+      </div>
+      <div class="sim-slider-group">
+        <div class="sim-slider-header">
+          <span class="sim-slider-label">Tasa de ocupacion</span>
+          <span class="sim-slider-value" id="sliderOccVal">76%</span>
+        </div>
+        <input type="range" id="sliderOcc" min="60" max="95" value="76" step="1">
+      </div>
+    </div>
+
+    <!-- Results Panels -->
+    <div class="sim-results fade-in">
+      <!-- LEFT: Tu inversion -->
+      <div class="sim-panel">
+        <div class="sim-panel-title"><span class="sim-panel-title-dot gold"></span> Tu inversion</div>
+        <div class="sim-line sim-line-clickable" onclick="openCostModal('fleet')">
+          <span class="sim-line-label">Inversion en flota <span class="sim-info-icon">?</span></span>
+          <span class="sim-line-value" id="simFleet">$65.000.000</span>
+        </div>
+        <div class="sim-line sim-line-clickable" onclick="openCostModal('workingCap')">
+          <span class="sim-line-label">Capital de trabajo <span class="sim-info-icon">?</span></span>
+          <span class="sim-line-value" id="simWorkCap">$7.000.000</span>
+        </div>
+        <div class="sim-line sim-line-clickable" onclick="openCostModal('infra')">
+          <span class="sim-line-label">Bodega + infraestructura <span class="sim-info-icon">?</span></span>
+          <span class="sim-line-value" id="simInfra">$3.000.000</span>
+        </div>
+        <div class="sim-total-line">
+          <span>TOTAL INVERSION</span>
+          <span class="sim-total-value gold" id="simTotalInv">$75.000.000</span>
+        </div>
+      </div>
+
+      <!-- RIGHT: Tu retorno -->
+      <div class="sim-panel">
+        <div class="sim-panel-title"><span class="sim-panel-title-dot teal"></span> Tu retorno mensual</div>
+        <div class="sim-line">
+          <span class="sim-line-label">Ingreso bruto mensual</span>
+          <span class="sim-line-value" style="color:var(--teal);" id="simRevenue">$12.920.000</span>
+        </div>
+        <div style="margin:8px 0 4px; font-size:0.75rem; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.08em;">Costos operativos <span style="font-size:0.65rem; opacity:0.7;">(click para editar)</span></div>
+        <div class="sim-line sim-line-clickable" onclick="openCostModal('personal')">
+          <span class="sim-line-label">Personal <span class="sim-info-icon">?</span></span>
+          <span class="sim-line-value" style="color:var(--danger);" id="simPersonal">-$2.500.000</span>
+        </div>
+        <div class="sim-line sim-line-clickable" onclick="openCostModal('bodega')">
+          <span class="sim-line-label">Bodega <span class="sim-info-icon">?</span></span>
+          <span class="sim-line-value" style="color:var(--danger);" id="simBodega">-$550.000</span>
+        </div>
+        <div class="sim-line sim-line-clickable" onclick="openCostModal('fuel')">
+          <span class="sim-line-label">Bencina + TAG <span class="sim-info-icon">?</span></span>
+          <span class="sim-line-value" style="color:var(--danger);" id="simFuel">-$2.660.000</span>
+        </div>
+        <div class="sim-line sim-line-clickable" onclick="openCostModal('sewage')">
+          <span class="sim-line-label">Limpiafosas <span class="sim-info-icon">?</span></span>
+          <span class="sim-line-value" style="color:var(--danger);" id="simSewage">-$2.560.000</span>
+        </div>
+        <div class="sim-line sim-line-clickable" onclick="openCostModal('marketing')">
+          <span class="sim-line-label">Marketing <span class="sim-info-icon">?</span></span>
+          <span class="sim-line-value" style="color:var(--danger);" id="simMarketing">-$400.000</span>
+        </div>
+        <div class="sim-line sim-line-clickable" onclick="openCostModal('contador')">
+          <span class="sim-line-label">Contador <span class="sim-info-icon">?</span></span>
+          <span class="sim-line-value" style="color:var(--danger);" id="simContador">-$60.000</span>
+        </div>
+        <div class="sim-line sim-line-clickable" onclick="openCostModal('insurance')">
+          <span class="sim-line-label">Seguros <span class="sim-info-icon">?</span></span>
+          <span class="sim-line-value" style="color:var(--danger);" id="simInsurance">-$1.500.000</span>
+        </div>
+        <div class="sim-line sim-line-clickable" onclick="openCostModal('chemicals')">
+          <span class="sim-line-label">Quimicos <span class="sim-info-icon">?</span></span>
+          <span class="sim-line-value" style="color:var(--danger);" id="simChemicals">-$750.000</span>
+        </div>
+        <div class="sim-total-line">
+          <span>UTILIDAD OPERATIVA MENSUAL</span>
+          <span class="sim-total-value" id="simMonthlyProfit">$1.940.000</span>
+        </div>
+        <div class="sim-big-result">
+          <div class="sim-big-result-value" id="simAnnualProfit" style="color:var(--teal);">$23.280.000</div>
+          <div class="sim-big-result-label">Utilidad anual proyectada</div>
+        </div>
+        <div class="sim-roi-row">
+          <div class="sim-roi-item">
+            <div class="sim-roi-value" id="simPayback">38.5</div>
+            <div class="sim-roi-label">Meses payback</div>
+          </div>
+          <div class="sim-roi-item">
+            <div class="sim-roi-value" id="simROI1">31%</div>
+            <div class="sim-roi-label">ROI Ano 1</div>
+          </div>
+          <div class="sim-roi-item">
+            <div class="sim-roi-value" id="simROI3">93%</div>
+            <div class="sim-roi-label">ROI Ano 3</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Cash Flow Chart -->
+    <div class="sim-chart-container fade-in">
+      <h3>Flujo de caja acumulado — 36 meses</h3>
+      <div class="sim-chart-wrapper">
+        <canvas id="cashFlowChart"></canvas>
+      </div>
+    </div>
+
+    <!-- Quick Scenario Cards -->
+    <div class="scenario-cards fade-in">
+      <div class="scenario-card" data-qty="100" data-cost="650000" data-price="160000" data-occ="70" onclick="applyScenario(this)">
+        <div class="scenario-name">Base</div>
+        <div class="scenario-desc">100 baños / $650K / 70%</div>
+      </div>
+      <div class="scenario-card active" data-qty="150" data-cost="600000" data-price="170000" data-occ="76" onclick="applyScenario(this)">
+        <div class="scenario-name">Moderado</div>
+        <div class="scenario-desc">150 baños / $600K / 76%</div>
+      </div>
+      <div class="scenario-card" data-qty="300" data-cost="550000" data-price="170000" data-occ="80" onclick="applyScenario(this)">
+        <div class="scenario-name">Agresivo</div>
+        <div class="scenario-desc">300 baños / $550K / 80%</div>
+      </div>
+      <div class="scenario-card" data-qty="500" data-cost="500000" data-price="175000" data-occ="85" onclick="applyScenario(this)">
+        <div class="scenario-name">Lider regional</div>
+        <div class="scenario-desc">500 baños / $500K / 85%</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     SECTION 7: ESCENARIOS COMPARADOS
+     ============================================ -->
+<section id="escenarios" style="background: linear-gradient(180deg, var(--bg-primary), var(--bg-secondary), var(--bg-primary));">
+  <div class="section-inner">
+    <div class="section-label fade-in">Escenarios</div>
+    <h2 class="section-title fade-in">Cuatro caminos.<br><span class="gradient-text">Un mismo negocio.</span></h2>
+
+    <div class="scenarios-grid" id="scenariosGrid">
+      <!-- Populated by JS -->
+    </div>
+
+    <div class="scenarios-chart-container fade-in">
+      <h3>Comparacion de escenarios — Metricas clave</h3>
+      <div class="scenarios-chart-wrapper">
+        <canvas id="scenariosChart"></canvas>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     SECTION 8: ADQUISICION INTELIGENTE
+     ============================================ -->
+<section id="adquisicion">
+  <div class="section-inner">
+    <div class="section-label fade-in">Estrategia de Compra</div>
+    <h2 class="section-title fade-in">Mix optimo<br><span class="gradient-text">para maximizar ROI.</span></h2>
+    <p class="section-subtitle fade-in stagger-1">No todos los baños cuestan lo mismo. Un mix inteligente entre usados, nuevos e importados reduce la inversion inicial en $18.4M.</p>
+
+    <div class="acquisition-grid">
+      <div class="acq-card fade-in stagger-1">
+        <div class="acq-card-tag used">Inmediato</div>
+        <div class="acq-card-title">Usados reacondicionados</div>
+        <div class="acq-detail"><span>Cantidad</span><span class="acq-detail-value">30 unidades</span></div>
+        <div class="acq-detail"><span>Precio unitario</span><span class="acq-detail-value">$350.000</span></div>
+        <div class="acq-detail"><span>Subtotal</span><span class="acq-detail-value">$10.500.000</span></div>
+        <div class="acq-detail"><span>Disponibilidad</span><span class="acq-detail-value">Inmediata</span></div>
+        <div class="acq-detail"><span>Payback</span><span class="acq-detail-value">3.7 meses</span></div>
+      </div>
+      <div class="acq-card fade-in stagger-2">
+        <div class="acq-card-tag new">3-5 semanas</div>
+        <div class="acq-card-title">Nuevos Polychem</div>
+        <div class="acq-detail"><span>Cantidad</span><span class="acq-detail-value">30 unidades</span></div>
+        <div class="acq-detail"><span>Precio unitario</span><span class="acq-detail-value">$520.000</span></div>
+        <div class="acq-detail"><span>Subtotal</span><span class="acq-detail-value">$15.600.000</span></div>
+        <div class="acq-detail"><span>Disponibilidad</span><span class="acq-detail-value">3-5 semanas</span></div>
+        <div class="acq-detail"><span>Payback</span><span class="acq-detail-value">5.6 meses</span></div>
+      </div>
+      <div class="acq-card fade-in stagger-3">
+        <div class="acq-card-tag import">60-90 dias</div>
+        <div class="acq-card-title">Importados Toppla container</div>
+        <div class="acq-detail"><span>Cantidad</span><span class="acq-detail-value">40 unidades</span></div>
+        <div class="acq-detail"><span>Precio unitario</span><span class="acq-detail-value">$637.000</span></div>
+        <div class="acq-detail"><span>Subtotal</span><span class="acq-detail-value">$25.480.000</span></div>
+        <div class="acq-detail"><span>Disponibilidad</span><span class="acq-detail-value">60-90 dias, escalonado</span></div>
+        <div class="acq-detail"><span>Payback</span><span class="acq-detail-value">6.8 meses</span></div>
+      </div>
+    </div>
+
+    <div class="acq-total fade-in">
+      <div class="acq-total-card cost">
+        <div class="acq-total-value gold">$51.580.000</div>
+        <div class="acq-total-label">Inversion total en flota (100 baños ejemplo)</div>
+      </div>
+      <div class="acq-total-card savings">
+        <div class="acq-total-value teal">$18.420.000</div>
+        <div class="acq-total-label">Ahorro vs. comprar todo nuevo premium</div>
+      </div>
+    </div>
+
+    <div class="acq-timeline fade-in" style="margin-top:32px;">
+      <h3 style="font-family:'Nunito',sans-serif; font-size:1rem; color:var(--text-secondary);">Linea de tiempo de despliegue</h3>
+      <div class="timeline-bar">
+        <div class="timeline-segment" style="width:30%; background: var(--teal);"></div>
+        <div class="timeline-segment" style="width:30%; background: var(--gold);"></div>
+        <div class="timeline-segment" style="width:40%; background: #5b8def;"></div>
+      </div>
+      <div class="timeline-labels">
+        <span class="timeline-label">Semana 1: 30 usados operativos</span>
+        <span class="timeline-label">Semana 5: +30 nuevos</span>
+        <span class="timeline-label">Dia 90: 100 baños operativos</span>
+      </div>
+      <p style="margin-top:20px; font-size:0.85rem; color:var(--text-muted);">A 200+ unidades/ano, evaluamos fabricacion propia con moldes desde China ($47M inversion, costo unitario cae a $500K).</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     SECTION 9: PROYECCION FINANCIERA
+     ============================================ -->
+<section id="proyeccion" style="background: linear-gradient(180deg, var(--bg-primary), var(--bg-secondary), var(--bg-primary));">
+  <div class="section-inner">
+    <div class="section-label fade-in">Proyeccion Financiera</div>
+    <h2 class="section-title fade-in">Vision a 3 anos:<br><span class="gradient-text">de operador local a lider regional.</span></h2>
+
+    <div class="projection-chart-container fade-in">
+      <div class="projection-chart-wrapper">
+        <canvas id="projectionChart"></canvas>
+      </div>
+    </div>
+
+    <div class="year-cards">
+      <div class="year-card fade-in stagger-1">
+        <div class="year-card-year">Ano 1</div>
+        <div class="year-card-units">150 baños</div>
+        <div class="year-metric"><span class="year-metric-label">Revenue</span><span class="year-metric-value gold">~$195M</span></div>
+        <div class="year-metric"><span class="year-metric-label">Utilidad</span><span class="year-metric-value teal">~$28M</span></div>
+        <div class="year-metric"><span class="year-metric-label">Ocupacion promedio</span><span class="year-metric-value">68%</span></div>
+      </div>
+      <div class="year-card fade-in stagger-2">
+        <div class="year-card-year">Ano 2</div>
+        <div class="year-card-units">300 baños (reinversion)</div>
+        <div class="year-metric"><span class="year-metric-label">Revenue</span><span class="year-metric-value gold">~$490M</span></div>
+        <div class="year-metric"><span class="year-metric-label">Utilidad</span><span class="year-metric-value teal">~$95M</span></div>
+        <div class="year-metric"><span class="year-metric-label">Ocupacion promedio</span><span class="year-metric-value">80%</span></div>
+      </div>
+      <div class="year-card fade-in stagger-3">
+        <div class="year-card-year">Ano 3</div>
+        <div class="year-card-units">500 baños</div>
+        <div class="year-metric"><span class="year-metric-label">Revenue</span><span class="year-metric-value gold">~$893M</span></div>
+        <div class="year-metric"><span class="year-metric-label">Utilidad</span><span class="year-metric-value teal">~$195M</span></div>
+        <div class="year-metric"><span class="year-metric-label">Ocupacion promedio</span><span class="year-metric-value">85%</span></div>
+      </div>
+    </div>
+
+    <div class="cumulative-box fade-in">
+      <h3 style="font-family:'Nunito',sans-serif; text-align:center; font-size:1.1rem; color:var(--text-secondary); margin-bottom:32px;">Acumulado 3 anos</h3>
+      <div class="cumulative-grid">
+        <div>
+          <div class="cumulative-item-value gold" data-count="1578" data-prefix="~$" data-suffix="M" data-display="1578">~$1.578M</div>
+          <div class="cumulative-item-label">Revenue acumulado</div>
+        </div>
+        <div>
+          <div class="cumulative-item-value teal" data-count="318" data-prefix="~$" data-suffix="M" data-display="318">~$318M</div>
+          <div class="cumulative-item-label">Utilidad acumulada</div>
+        </div>
+        <div>
+          <div class="cumulative-item-value gold" data-count="500" data-prefix="~$" data-suffix="M+" data-display="500">~$500M+</div>
+          <div class="cumulative-item-label">Patrimonio (flota + caja)</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     SECTION 10: EQUIPO Y OPERACION
+     ============================================ -->
+<section id="equipo">
+  <div class="section-inner">
+    <div class="section-label fade-in">Equipo y Operacion</div>
+    <h2 class="section-title fade-in"><span class="gradient-text">Listos para ejecutar.</span></h2>
+
+    <div class="team-grid">
+      <div class="team-panel fade-in-left">
+        <div class="team-panel-title"><span class="sim-panel-title-dot teal"></span> Lo que ya esta en marcha</div>
+        <ul class="team-list">
+          <li><span class="team-check done">&#10003;</span> Plataforma SaaS desarrollada y operativa (app.destaperapido.cl)</li>
+          <li><span class="team-check done">&#10003;</span> Sitio web posicionado con Google Ads activo (destaperapido.cl)</li>
+          <li><span class="team-check done">&#10003;</span> Red de proveedores negociada (nacionales e internacionales)</li>
+          <li><span class="team-check done">&#10003;</span> Relaciones con municipalidades y constructoras</li>
+          <li><span class="team-check done">&#10003;</span> Estructura tributaria configurada (Pro Pyme General)</li>
+        </ul>
+      </div>
+      <div class="team-panel fade-in-right">
+        <div class="team-panel-title"><span class="sim-panel-title-dot gold"></span> Lo que habilita la inversion</div>
+        <ul class="team-list">
+          <li><span class="team-check todo">+</span> Adquisicion de flota (100+ baños)</li>
+          <li><span class="team-check todo">+</span> Arriendo de bodega con showroom (clave para contratos municipales)</li>
+          <li><span class="team-check todo">+</span> Contratacion de equipo operativo (3+ conductores, coordinadores)</li>
+          <li><span class="team-check todo">+</span> Capital de trabajo para 3 meses de operacion</li>
+          <li><span class="team-check todo">+</span> Marketing agresivo de lanzamiento</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="allocation-chart-container fade-in" style="margin-top:32px;">
+      <h3 style="font-family:'Nunito',sans-serif; font-size:1rem; color:var(--text-secondary); margin-bottom:20px; text-align:center;">Distribucion de la inversion</h3>
+      <div class="allocation-chart-wrapper">
+        <canvas id="allocationChart"></canvas>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     SECTION 11: CALL TO ACTION
+     ============================================ -->
+<section id="cta">
+  <div class="section-inner" style="position:relative; z-index:1;">
+    <div class="section-label fade-in" style="justify-content:center;">La Oportunidad</div>
+    <div class="cta-amount fade-in">$90M – $130M CLP</div>
+    <p class="cta-desc fade-in stagger-1">Inversion para adquisicion de 150-300 baños, bodega con showroom, equipo operativo e infraestructura tecnologica.</p>
+
+    <div class="cta-returns fade-in">
+      <div class="cta-return-card gradient-border">
+        <div class="cta-return-value">8-12</div>
+        <div class="cta-return-label">Meses de payback</div>
+      </div>
+      <div class="cta-return-card gradient-border">
+        <div class="cta-return-value">25-60%</div>
+        <div class="cta-return-label">ROI Ano 1</div>
+      </div>
+      <div class="cta-return-card gradient-border">
+        <div class="cta-return-value">200-350%</div>
+        <div class="cta-return-label">ROI Ano 3</div>
+      </div>
+    </div>
+
+    <div class="cta-projection fade-in">Retorno proyectado: 3x en 18-24 meses</div>
+
+    <div class="cta-contact-bar fade-in">
+      <div class="cta-contact-item"><strong>app.destaperapido.cl</strong></div>
+      <div class="cta-contact-dot"></div>
+      <div class="cta-contact-item"><strong>+56 9 3647 0112</strong></div>
+      <div class="cta-contact-dot"></div>
+      <div class="cta-contact-item" style="color:var(--gold); font-weight:600; cursor:pointer;">Agenda una reunion</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     SECTION 12: FOOTER
+     ============================================ -->
+<footer>
+  <p>Proyecciones basadas en datos operativos reales y condiciones de mercado al mayo 2026.</p>
+  <p>Cifras sujetas a condiciones de mercado. Este documento no constituye una oferta de valores.</p>
+  <p style="margin-top:12px; color:var(--gold-dark);">Destapa Rapido — Santiago, Chile</p>
+</footer>
+
+<!-- ============================================
+     JAVASCRIPT
+     ============================================ -->
+<script>
+(function() {
+  'use strict';
+
+  // ============================================
+  // UTILITY FUNCTIONS
+  // ============================================
+  function formatCLP(n) {
+    if (n < 0) return '-$' + Math.abs(Math.round(n)).toLocaleString('es-CL');
+    return '$' + Math.round(n).toLocaleString('es-CL');
+  }
+
+  function formatCompact(n) {
+    if (Math.abs(n) >= 1000000000) return '$' + (n / 1000000000).toFixed(1) + 'B';
+    if (Math.abs(n) >= 1000000) return '$' + (n / 1000000).toFixed(1) + 'M';
+    if (Math.abs(n) >= 1000) return '$' + (n / 1000).toFixed(0) + 'K';
+    return '$' + n.toFixed(0);
+  }
+
+  function easeOutExpo(t) {
+    return t === 1 ? 1 : 1 - Math.pow(2, -10 * t);
+  }
+
+  // ============================================
+  // SCROLL PROGRESS BAR
+  // ============================================
+  var progressBar = document.getElementById('scroll-progress');
+  function updateProgress() {
+    var scrollTop = window.pageYOffset;
+    var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    var progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+    progressBar.style.width = progress + '%';
+  }
+
+  // ============================================
+  // STICKY NAV
+  // ============================================
+  var mainNav = document.getElementById('main-nav');
+  var navLinks = document.querySelectorAll('.nav-link');
+  var sections = document.querySelectorAll('section[id]');
+
+  function updateNav() {
+    var scrollY = window.pageYOffset;
+    mainNav.classList.toggle('visible', scrollY > 100);
+
+    var current = '';
+    sections.forEach(function(section) {
+      var top = section.offsetTop - 200;
+      if (scrollY >= top) current = section.getAttribute('id');
+    });
+
+    navLinks.forEach(function(link) {
+      link.classList.toggle('active', link.getAttribute('data-target') === current);
+    });
+  }
+
+  navLinks.forEach(function(link) {
+    link.addEventListener('click', function() {
+      var target = document.getElementById(this.getAttribute('data-target'));
+      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+
+  // ============================================
+  // INTERSECTION OBSERVER ANIMATIONS
+  // ============================================
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        // trigger counter if it has data-count
+        var counters = entry.target.querySelectorAll('[data-count]');
+        counters.forEach(function(el) { animateCounter(el); });
+        if (entry.target.hasAttribute('data-count')) animateCounter(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+  document.querySelectorAll('.fade-in, .fade-in-left, .fade-in-right').forEach(function(el) {
+    observer.observe(el);
+  });
+
+  // ============================================
+  // COUNTER ANIMATIONS
+  // ============================================
+  var animatedCounters = new Set();
+
+  function animateCounter(el) {
+    if (animatedCounters.has(el)) return;
+    animatedCounters.add(el);
+
+    var display = el.getAttribute('data-display');
+    var finalText = el.textContent;
+    var targetNum = parseFloat(display);
+    if (isNaN(targetNum)) return;
+
+    var prefix = el.getAttribute('data-prefix') || '';
+    var suffix = el.getAttribute('data-suffix') || '';
+    var duration = 2000;
+    var startTime = null;
+
+    function step(timestamp) {
+      if (!startTime) startTime = timestamp;
+      var progress = Math.min((timestamp - startTime) / duration, 1);
+      var easedProgress = easeOutExpo(progress);
+      var currentValue = targetNum * easedProgress;
+
+      if (targetNum === 0) {
+        el.textContent = prefix + '0' + suffix;
+      } else if (Number.isInteger(targetNum)) {
+        el.textContent = prefix + Math.round(currentValue) + suffix;
+      } else {
+        el.textContent = prefix + currentValue.toFixed(1) + suffix;
+      }
+
+      if (progress < 1) {
+        requestAnimationFrame(step);
+      } else {
+        el.textContent = finalText;
+      }
+    }
+
+    el.textContent = prefix + '0' + suffix;
+    requestAnimationFrame(step);
+  }
+
+  // ============================================
+  // SCROLL LISTENER
+  // ============================================
+  var ticking = false;
+  window.addEventListener('scroll', function() {
+    if (!ticking) {
+      requestAnimationFrame(function() {
+        updateProgress();
+        updateNav();
+        ticking = false;
+      });
+      ticking = true;
+    }
+  });
+
+  // ============================================
+  // SIMULATOR LOGIC
+  // ============================================
+  var sliderQty = document.getElementById('sliderQty');
+  var sliderCost = document.getElementById('sliderCost');
+  var sliderPrice = document.getElementById('sliderPrice');
+  var sliderOcc = document.getElementById('sliderOcc');
+
+  var cashFlowChart = null;
+
+  function calcSimulator() {
+    var qty = parseInt(sliderQty.value);
+    var cost = parseInt(sliderCost.value);
+    var price = parseInt(sliderPrice.value);
+    var occ = parseInt(sliderOcc.value) / 100;
+
+    // Display slider values
+    document.getElementById('sliderQtyVal').textContent = qty;
+    document.getElementById('sliderCostVal').textContent = formatCLP(cost);
+    document.getElementById('sliderPriceVal').textContent = formatCLP(price);
+    document.getElementById('sliderOccVal').textContent = Math.round(occ * 100) + '%';
+
+    // Update slider fill
+    updateSliderFill(sliderQty);
+    updateSliderFill(sliderCost);
+    updateSliderFill(sliderPrice);
+    updateSliderFill(sliderOcc);
+
+    // Investment
+    var fleetCost = qty * cost;
+    var activeBathrooms = Math.round(qty * occ);
+
+    // Operating costs — use overrides if user has edited in modal, otherwise use defaults
+    var driverPay = costOverrides.costPerDriver !== undefined ? costOverrides.costPerDriver : 600000;
+    var coordPay = costOverrides.costCoordinator !== undefined ? costOverrides.costCoordinator : 800000;
+    var adminPay = costOverrides.costAdmin !== undefined ? costOverrides.costAdmin : 500000;
+    var cleanings = costOverrides.cleaningsPerMonth || 3;
+    var bpr = costOverrides.bathsPerCleanRoute || 2.5;
+    var rpd = costOverrides.routesPerDay || 3;
+    var wd = costOverrides.workDaysPerMonth || 22;
+    var pctM = (costOverrides.pctMensual || 60) / 100;
+    var epm = costOverrides.eventsPerPuntualBath || 3;
+    var mensuales = Math.round(activeBathrooms * pctM);
+    var puntuales = activeBathrooms - mensuales;
+    var cleanRoutes = Math.ceil((mensuales * cleanings) / bpr);
+    var eventRoutes = Math.ceil((puntuales * epm * 2) / bpr);
+    var totalRoutes = cleanRoutes + eventRoutes;
+    var conductores = Math.max(1, Math.ceil(totalRoutes / (rpd * wd)));
+    var personal = conductores * driverPay;
+    if (qty > 60) personal += coordPay;
+    if (qty > 80) personal += adminPay;
+    if (qty > 200) personal += coordPay;
+    if (qty > 300) personal += adminPay + driverPay;
+
+    var bodega = costOverrides.costBodega || (qty <= 100 ? 550000 : qty <= 200 ? 850000 : qty <= 350 ? 1200000 : 1800000);
+    var fuelPerUnit = costOverrides.costFuelPerUnit || 35000;
+    var fuel = fuelPerUnit * activeBathrooms;
+    var routeCost = costOverrides.costPerRoute || 80000;
+    var bathsPerRoute = costOverrides.bathsPerRoute || 2.5;
+    var routes = Math.ceil(activeBathrooms / bathsPerRoute);
+    var sewage = routeCost * routes;
+    var marketing = costOverrides.costMarketing || 400000;
+    var contador = costOverrides.costContador || 60000;
+    var insurancePerUnit = costOverrides.costInsurancePerUnit || 1531;
+    var insurance = insurancePerUnit * qty;
+    var chemPerUnit = costOverrides.costChemPerUnit || 7500;
+    var chemicals = chemPerUnit * qty;
+    var totalCosts = personal + bodega + fuel + sewage + marketing + contador + insurance + chemicals;
+
+    // Revenue
+    var monthlyRevenue = qty * occ * price;
+    var monthlyProfit = monthlyRevenue - totalCosts;
+    var annualProfit = monthlyProfit * 12;
+
+    // Working capital — use override or calculate
+    var workingCapital;
+    if (costOverrides.workingCapCustom > 0) {
+      workingCapital = costOverrides.workingCapCustom;
+    } else {
+      var wcMonths = costOverrides.workingCapMonths || 2;
+      var wcActive = Math.round(qty * 0.5);
+      var wcPersonal = Math.max(1, Math.ceil(qty / 60)) * driverPay;
+      if (qty > 60) wcPersonal += coordPay;
+      if (qty > 80) wcPersonal += adminPay;
+      var wcMonthlyCost = wcPersonal + bodega + (fuelPerUnit * wcActive) + (routeCost * Math.ceil(wcActive / (costOverrides.bathsPerRoute || 2.5))) + marketing + contador + insurance / qty * wcActive + chemPerUnit * qty;
+      workingCapital = wcMonthlyCost * wcMonths;
+    }
+    var infraCost = costOverrides.costInfra !== undefined ? costOverrides.costInfra : 3000000;
+    var totalInvestment = fleetCost + workingCapital + infraCost;
+
+    var paybackMonths = monthlyProfit > 0 ? totalInvestment / monthlyProfit : 999;
+    var roi1 = totalInvestment > 0 ? (annualProfit / totalInvestment) * 100 : 0;
+    var roi3 = totalInvestment > 0 ? ((annualProfit * 3) / totalInvestment) * 100 : 0;
+
+    // Update DOM
+    document.getElementById('simFleet').textContent = formatCLP(fleetCost);
+    document.getElementById('simWorkCap').textContent = formatCLP(workingCapital);
+    document.getElementById('simInfra').textContent = formatCLP(infraCost);
+    document.getElementById('simTotalInv').textContent = formatCLP(totalInvestment);
+    document.getElementById('simRevenue').textContent = formatCLP(monthlyRevenue);
+    document.getElementById('simPersonal').textContent = '-' + formatCLP(personal);
+    document.getElementById('simBodega').textContent = '-' + formatCLP(bodega);
+    document.getElementById('simFuel').textContent = '-' + formatCLP(fuel);
+    document.getElementById('simSewage').textContent = '-' + formatCLP(sewage);
+    document.getElementById('simMarketing').textContent = '-' + formatCLP(marketing);
+    document.getElementById('simContador').textContent = '-' + formatCLP(contador);
+    document.getElementById('simInsurance').textContent = '-' + formatCLP(insurance);
+    document.getElementById('simChemicals').textContent = '-' + formatCLP(chemicals);
+
+    var profitEl = document.getElementById('simMonthlyProfit');
+    profitEl.textContent = formatCLP(monthlyProfit);
+    profitEl.className = 'sim-total-value ' + (monthlyProfit >= 0 ? 'positive' : 'negative');
+
+    var annualEl = document.getElementById('simAnnualProfit');
+    annualEl.textContent = formatCLP(annualProfit);
+    annualEl.style.color = annualProfit >= 0 ? 'var(--teal)' : 'var(--danger)';
+
+    document.getElementById('simPayback').textContent = paybackMonths < 100 ? paybackMonths.toFixed(1) : 'N/A';
+    document.getElementById('simROI1').textContent = roi1.toFixed(0) + '%';
+    document.getElementById('simROI3').textContent = roi3.toFixed(0) + '%';
+
+    // Cash flow chart
+    updateCashFlowChart(totalInvestment, qty, price, occ, totalCosts, monthlyProfit);
+  }
+
+  function updateSliderFill(slider) {
+    var min = parseFloat(slider.min);
+    var max = parseFloat(slider.max);
+    var val = parseFloat(slider.value);
+    var pct = ((val - min) / (max - min)) * 100;
+    slider.style.background = 'linear-gradient(to right, #1a5c2e 0%, #22803d ' + pct + '%, rgba(0,0,0,0.06) ' + pct + '%)';
+  }
+
+  // ============================================
+  // COST OVERRIDES (editable from modals)
+  // ============================================
+  var costOverrides = {};
+  var currentModalCost = null;
+
+  var costDefinitions = {
+    personal: {
+      title: 'Personal — Calculo basado en demanda real',
+      desc: 'No todos los baños requieren limpieza. Los mensuales necesitan 3 limpiezas/mes, pero los puntuales (eventos diarios/semanales, ~40% del negocio) solo requieren entrega y retiro. El numero de camiones se calcula sumando rutas de limpieza + rutas de entrega/retiro de eventos.',
+      formula: function(qty, occ) {
+        var active = Math.round(qty * (occ || 0.76));
+        var pctMensual = (costOverrides.pctMensual || 60) / 100;
+        var cleanings = costOverrides.cleaningsPerMonth || 3;
+        var bpr = costOverrides.bathsPerCleanRoute || 2.5;
+        var rpd = costOverrides.routesPerDay || 3;
+        var workDays = costOverrides.workDaysPerMonth || 22;
+        var eventsPerMonth = costOverrides.eventsPerPuntualBath || 3;
+
+        var mensuales = Math.round(active * pctMensual);
+        var puntuales = active - mensuales;
+        var cleanRoutes = Math.ceil((mensuales * cleanings) / bpr);
+        var eventRoutes = Math.ceil(puntuales * eventsPerMonth * 2 / bpr);
+        var totalRoutes = cleanRoutes + eventRoutes;
+        var capacityPerTruck = rpd * workDays;
+        var trucks = Math.max(1, Math.ceil(totalRoutes / capacityPerTruck));
+
+        return '<strong style="color:var(--teal);">Mensuales (' + Math.round(pctMensual*100) + '%):</strong> ' + mensuales + ' baños x ' + cleanings + ' limpiezas = ' + (mensuales*cleanings) + ' visitas → ' + cleanRoutes + ' rutas/mes<br>' +
+          '<strong style="color:var(--gold);">Puntuales (' + Math.round((1-pctMensual)*100) + '%):</strong> ' + puntuales + ' baños x ' + eventsPerMonth + ' eventos x 2 viajes = ' + (puntuales*eventsPerMonth*2) + ' viajes → ' + eventRoutes + ' rutas/mes<br>' +
+          '<strong>Total rutas:</strong> ' + cleanRoutes + ' + ' + eventRoutes + ' = ' + totalRoutes + ' rutas/mes<br>' +
+          '<strong>Capacidad:</strong> ' + rpd + ' rutas/dia x ' + workDays + ' dias = ' + capacityPerTruck + ' rutas/camion/mes<br>' +
+          '<strong>Camiones necesarios:</strong> ' + totalRoutes + ' / ' + capacityPerTruck + ' = <span style="color:var(--teal);font-weight:800;">' + trucks + ' camion(es)</span>';
+      },
+      inputs: [
+        { id: 'costPerDriver', label: 'Sueldo por conductor/camion (CLP/mes)', default: 600000 },
+        { id: 'pctMensual', label: '% de baños en contratos mensuales (el resto son puntuales/eventos)', default: 60 },
+        { id: 'cleaningsPerMonth', label: 'Limpiezas por baño mensual al mes', default: 3 },
+        { id: 'eventsPerPuntualBath', label: 'Eventos por baño puntual al mes (entrega+retiro = 2 viajes c/u)', default: 3 },
+        { id: 'bathsPerCleanRoute', label: 'Baños que se atienden por ruta', default: 2.5 },
+        { id: 'routesPerDay', label: 'Rutas por camion al dia', default: 3 },
+        { id: 'workDaysPerMonth', label: 'Dias laborales al mes', default: 22 },
+        { id: 'costCoordinator', label: 'Sueldo coordinador operaciones (CLP/mes, >60 baños)', default: 800000 },
+        { id: 'costAdmin', label: 'Sueldo asistente admin (CLP/mes, >80 baños)', default: 500000 }
+      ],
+      calc: function(values, qty, occ) {
+        var active = Math.round(qty * (occ || 0.76));
+        var pctMensual = (values.pctMensual || 60) / 100;
+        var mensuales = Math.round(active * pctMensual);
+        var puntuales = active - mensuales;
+        var cleanRoutes = Math.ceil((mensuales * (values.cleaningsPerMonth || 3)) / (values.bathsPerCleanRoute || 2.5));
+        var eventRoutes = Math.ceil((puntuales * (values.eventsPerPuntualBath || 3) * 2) / (values.bathsPerCleanRoute || 2.5));
+        var totalRoutes = cleanRoutes + eventRoutes;
+        var capacityPerTruck = (values.routesPerDay || 3) * (values.workDaysPerMonth || 22);
+        var trucks = Math.max(1, Math.ceil(totalRoutes / capacityPerTruck));
+        var total = trucks * values.costPerDriver;
+        if (qty > 60) total += values.costCoordinator;
+        if (qty > 80) total += values.costAdmin;
+        if (qty > 200) total += values.costCoordinator;
+        if (qty > 300) total += values.costAdmin + values.costPerDriver;
+        return total;
+      },
+      note: 'Datos reales: 59% mensual / 41% puntual segun clientes actuales. Mensuales requieren limpieza cada 10 dias. Puntuales (eventos, obras cortas) solo necesitan entrega y retiro (2 viajes por evento). Los eventos generan ~$100.000/dia vs $170.000/mes de los mensuales, pero con menor costo operativo por no requerir limpieza recurrente.'
+    },
+    bodega: {
+      title: 'Bodega',
+      desc: 'Arriendo mensual de bodega/galpon industrial para almacenar la flota y como showroom para clientes institucionales. El tamaño y costo escala con la cantidad de baños.',
+      formula: function(qty) {
+        if (qty <= 100) return '80-100 m2 en zona industrial (Quinta Normal, Cerro Navia) = $550.000/mes';
+        if (qty <= 200) return '150-200 m2 en zona industrial = $850.000/mes';
+        if (qty <= 350) return '300+ m2, bodega grande = $1.200.000/mes';
+        return '500+ m2, galpon industrial = $1.800.000/mes';
+      },
+      inputs: [
+        { id: 'costBodega', label: 'Arriendo bodega (CLP/mes)', default: 550000 }
+      ],
+      calc: function(values) { return values.costBodega; },
+      note: 'Los precios de referencia son para la zona poniente de Santiago (Quinta Normal, Cerro Navia, Renca, Pudahuel). Incluir showroom puede subir el costo 20-30%.'
+    },
+    fuel: {
+      title: 'Bencina + TAG',
+      desc: 'Combustible y telepeaje para las rutas de mantención y entrega/retiro de baños. Se calcula por baño activo: cada baño requiere visitas periódicas de limpieza. Incluye los viajes de ida y vuelta desde la bodega a cada zona.',
+      formula: function(qty, occ) {
+        var active = Math.round(qty * occ);
+        return active + ' baños activos x $35.000/mes c/u = $' + (active * 35000).toLocaleString('es-CL');
+      },
+      inputs: [
+        { id: 'costFuelPerUnit', label: 'Costo bencina + TAG por baño activo (CLP/mes)', default: 35000 }
+      ],
+      calc: function(values, qty, occ) {
+        var active = Math.round(qty * occ);
+        return values.costFuelPerUnit * active;
+      },
+      note: 'Basado en precio bencina $1.350/litro, consumo 7 km/litro, y distancias promedio de 15-25 km por zona en Santiago. Con optimizacion de rutas SaaS se puede reducir 15-20%.'
+    },
+    sewage: {
+      title: 'Limpiafosas',
+      desc: 'Servicio de camion limpiafosas para vaciar los estanques de residuos de cada baño. Se contrata por ruta: cada ruta cubre 2-3 baños en una misma zona. Se puede negociar tarifa por volumen.',
+      formula: function(qty, occ) {
+        var active = Math.round(qty * occ);
+        var routes = Math.ceil(active / 2.5);
+        return routes + ' rutas (1 ruta = 2-3 baños) x $80.000/ruta = $' + (routes * 80000).toLocaleString('es-CL');
+      },
+      inputs: [
+        { id: 'costPerRoute', label: 'Costo por ruta de limpiafosas (CLP)', default: 80000 },
+        { id: 'bathsPerRoute', label: 'Baños por ruta (promedio)', default: 2.5 }
+      ],
+      calc: function(values, qty, occ) {
+        var active = Math.round(qty * occ);
+        var routes = Math.ceil(active / values.bathsPerRoute);
+        return values.costPerRoute * routes;
+      },
+      note: 'Precio de mercado para camion limpiafosas de 1.500L en Santiago. A mayor volumen se puede negociar a $60.000-70.000/ruta. Considerar comprar camion propio sobre 200 baños.'
+    },
+    marketing: {
+      title: 'Marketing',
+      desc: 'Presupuesto mensual en Google Ads para mantener flujo constante de leads y maximizar la tasa de ocupacion de la flota. Es critico para evitar baños ociosos.',
+      formula: function(qty) {
+        if (qty <= 150) return 'Google Ads basico: $400.000/mes (~$13.000/dia)';
+        if (qty <= 300) return 'Google Ads intermedio: $700.000/mes + SEO';
+        return 'Google Ads + display + remarketing: $1.000.000/mes';
+      },
+      inputs: [
+        { id: 'costMarketing', label: 'Presupuesto marketing mensual (CLP)', default: 400000 }
+      ],
+      calc: function(values) { return values.costMarketing; },
+      note: 'Google Ads es el principal canal de captacion. El costo por lead promedio en el rubro es $8.000-$15.000. Con 100+ baños, invertir mas en marketing es rentable porque cada lead convertido genera $170.000+/mes.'
+    },
+    contador: {
+      title: 'Contador',
+      desc: 'Servicio de contabilidad externa para declaraciones mensuales, IVA, facturacion electronica y declaracion de renta. Regimen tributario: Pro Pyme General.',
+      formula: function() { return 'Servicio contable mensual fijo: $60.000/mes'; },
+      inputs: [
+        { id: 'costContador', label: 'Honorarios contador (CLP/mes)', default: 60000 }
+      ],
+      calc: function(values) { return values.costContador; },
+      note: 'Incluye declaraciones mensuales de IVA, PPM, gestion de boletas y facturas. Si la operacion crece mucho (>$15M/mes facturacion), considerar contador interno a $500.000-700.000/mes.'
+    },
+    insurance: {
+      title: 'Seguros de Flota',
+      desc: 'Seguro de Equipo Movil Contratista (EMC). Cubre daño, robo y vandalismo de los baños quimicos en terreno, transporte y bodega.',
+      formula: function(qty) {
+        var plan = costOverrides.insurancePlan || 'full';
+        var planNames = {basico: 'Basico (solo robo)', estandar: 'Estandar (robo + daños)', full: 'Todo Riesgo (cobertura completa)', none: 'Sin seguro (autoseguro)'};
+        var rates = {basico: 328, estandar: 875, full: 1531, none: 0};
+        var rate = rates[plan];
+        var discount = qty >= 500 ? 0.30 : qty >= 300 ? 0.20 : qty >= 200 ? 0.15 : qty >= 100 ? 0.10 : 0;
+        var finalRate = Math.round(rate * (1 - discount));
+        if (plan === 'none') return 'Autoseguro: $0/mes por unidad. Se recomienda crear fondo de reserva equivalente al 2-3% del valor de la flota.';
+        return 'Plan: ' + planNames[plan] + '<br>Tasa base: $' + rate.toLocaleString('es-CL') + '/mes por unidad<br>Descuento volumen (' + qty + ' uds): -' + Math.round(discount * 100) + '%<br>Tasa final: $' + finalRate.toLocaleString('es-CL') + '/mes por unidad<br>Total: $' + (finalRate * qty).toLocaleString('es-CL') + '/mes';
+      },
+      inputs: [
+        { id: 'costInsurancePerUnit', label: 'Costo seguro por baño (CLP/mes) — se calcula automaticamente segun plan', default: 1531 }
+      ],
+      calc: function(values, qty) { return values.costInsurancePerUnit * qty; },
+      note: 'Datos basados en tasas reales del mercado chileno para Seguro EMC (Equipo Movil Contratista). Aseguradoras: MAPFRE, Consorcio, Reale, Chubb. Corredoras recomendadas: Focus Corredores, SSSEGUROS, Howden Chile. El autoseguro es viable a partir de 200+ unidades con data de siniestralidad.'
+    },
+    chemicals: {
+      title: 'Quimicos',
+      desc: 'Liquido degradante, desodorizante y sanitizante que se agrega en cada limpieza para descomponer residuos y eliminar olores. Tambien incluye papel higienico, jabon y alcohol gel para cada baño.',
+      formula: function(qty) {
+        return qty + ' baños x $7.500/mes c/u = $' + (qty * 7500).toLocaleString('es-CL');
+      },
+      inputs: [
+        { id: 'costChemPerUnit', label: 'Costo quimicos + insumos por baño (CLP/mes)', default: 7500 }
+      ],
+      calc: function(values, qty) { return values.costChemPerUnit * qty; },
+      note: 'Degradante liquido 5L cuesta ~$10.000 (rinde 2-3 baños/mes). Incluir papel higienico ($2.000/mes), jabon ($1.000/mes) y alcohol gel ($500/mes) por baño.'
+    },
+    fleet: {
+      title: 'Inversion en Flota',
+      desc: 'Costo total de comprar los baños quimicos. Depende de la cantidad y el costo promedio por unidad (configurado en los sliders principales). Un mix inteligente de usados + nuevos + importados reduce este monto.',
+      formula: function(qty) {
+        var cost = parseInt(document.getElementById('sliderCost').value) || 650000;
+        return qty + ' baños x $' + cost.toLocaleString('es-CL') + ' = $' + (qty * cost).toLocaleString('es-CL');
+      },
+      inputs: [],
+      calc: function(values, qty) {
+        var cost = parseInt(document.getElementById('sliderCost').value) || 650000;
+        return qty * cost;
+      },
+      note: 'Este valor se controla con los sliders de "Cantidad de baños" y "Costo promedio por baño" arriba. No se edita aqui.'
+    },
+    workingCap: {
+      title: 'Capital de Trabajo',
+      desc: 'Reserva de efectivo para cubrir gastos operativos durante el periodo de ramp-up (primeros meses donde la ocupacion es baja pero los costos fijos ya corren). Sin esta reserva, no podrias pagar sueldos, bencina y arriendos mientras la flota se llena.',
+      formula: function(qty, occ) {
+        var months = costOverrides.workingCapMonths || 2;
+        var active = Math.round(qty * 0.5);
+        var estimatedCosts = 3000000 + active * 35000 + Math.ceil(active / 2.5) * 80000;
+        return '<strong>Desglose estimado por mes de ramp-up:</strong><br>' +
+          '- Sueldos equipo: ~$1.500.000 - $3.000.000<br>' +
+          '- Bodega: $550.000 - $1.800.000<br>' +
+          '- Bencina + TAG: ~$' + (active * 35000).toLocaleString('es-CL') + ' (al 50% ocupacion)<br>' +
+          '- Limpiafosas: ~$' + (Math.ceil(active / 2.5) * 80000).toLocaleString('es-CL') + '<br>' +
+          '- Marketing: $400.000 - $1.000.000<br>' +
+          '- Seguros, quimicos, contador<br><br>' +
+          '<strong>Meses de reserva:</strong> ' + months;
+      },
+      inputs: [
+        { id: 'workingCapMonths', label: 'Meses de reserva operativa', default: 2 },
+        { id: 'workingCapCustom', label: 'O fijar monto fijo (CLP, dejar en 0 para calcular automatico)', default: 0 }
+      ],
+      calc: function(values, qty, occ) {
+        if (values.workingCapCustom > 0) return values.workingCapCustom;
+        var months = values.workingCapMonths || 2;
+        var active = Math.round(qty * 0.5);
+        var driverPay = costOverrides.costPerDriver !== undefined ? costOverrides.costPerDriver : 600000;
+        var conductores = Math.max(1, Math.ceil(qty / 60));
+        var personal = conductores * driverPay;
+        if (qty > 60) personal += 800000;
+        if (qty > 80) personal += 500000;
+        var bodega = costOverrides.costBodega || (qty <= 100 ? 550000 : qty <= 200 ? 850000 : qty <= 350 ? 1200000 : 1800000);
+        var fuel = (costOverrides.costFuelPerUnit || 35000) * active;
+        var sewage = (costOverrides.costPerRoute || 80000) * Math.ceil(active / 2.5);
+        var mktg = costOverrides.costMarketing || 400000;
+        var monthlyCost = personal + bodega + fuel + sewage + mktg + 60000 + (costOverrides.costInsurancePerUnit || 1531) * qty + (costOverrides.costChemPerUnit || 7500) * qty;
+        return monthlyCost * months;
+      },
+      note: 'Durante los primeros 1-3 meses la ocupacion es ~50% pero los costos fijos corren igual. Esta reserva evita quedarse sin caja. Con 2 meses de reserva + ingresos desde el mes 1 (aunque sean menores), la operacion es viable. Si tienes acceso a linea de credito, puedes reducir este monto.'
+    },
+    infra: {
+      title: 'Bodega + Infraestructura',
+      desc: 'Costo unico de habilitacion de la bodega/showroom. Incluye acondicionamiento del espacio, estanterias, instalacion electrica, señaletica, herramientas de mantencion y equipamiento inicial.',
+      formula: function(qty) {
+        return '<strong>Desglose estimado:</strong><br>' +
+          '- Habilitacion bodega (pintura, piso, electrica): $800.000 - $1.500.000<br>' +
+          '- Showroom para clientes (para no perder licitaciones municipales): $500.000 - $1.000.000<br>' +
+          '- Herramientas de mantencion y reparacion: $300.000 - $500.000<br>' +
+          '- Señaletica y branding: $200.000 - $300.000<br>' +
+          '- Estanterias y almacenamiento insumos: $200.000 - $400.000<br>' +
+          '- Imprevistos: $500.000';
+      },
+      inputs: [
+        { id: 'costInfra', label: 'Costo total habilitacion infraestructura (CLP)', default: 3000000 }
+      ],
+      calc: function(values) { return values.costInfra; },
+      note: 'El showroom es critico: la propuesta de San Joaquin ($97.8M) se perdio porque la municipalidad quiso visitar instalaciones y no teniamos donde mostrar los baños. Esta inversion se paga con un solo contrato municipal.'
+    }
+  };
+
+  window.openCostModal = function(costId) {
+    if (costId === 'insurance') {
+      openInsuranceModal();
+      return;
+    }
+    currentModalCost = costId;
+    var def = costDefinitions[costId];
+    var qty = parseInt(sliderQty.value);
+    var occ = parseInt(sliderOcc.value) / 100;
+
+    document.getElementById('costModalTitle').textContent = def.title;
+    document.getElementById('costModalDesc').textContent = def.desc;
+    document.getElementById('costModalFormula').innerHTML = '<strong>Como se calcula:</strong><br>' + def.formula(qty, occ);
+    document.getElementById('costModalNote').textContent = def.note;
+
+    var inputsContainer = document.getElementById('costModalInputs');
+    inputsContainer.innerHTML = '';
+
+    def.inputs.forEach(function(inp) {
+      var overrideVal = costOverrides[inp.id] !== undefined ? costOverrides[inp.id] : inp.default;
+      var group = document.createElement('div');
+      group.className = 'cost-modal-input-group';
+      group.innerHTML = '<label for="modal_' + inp.id + '">' + inp.label + '</label>' +
+        '<input type="number" class="cost-modal-input" id="modal_' + inp.id + '" value="' + overrideVal + '" oninput="updateModalTotal()">';
+      inputsContainer.appendChild(group);
+    });
+
+    updateModalTotal();
+
+    var overlay = document.getElementById('costModalOverlay');
+    overlay.style.display = 'flex';
+    requestAnimationFrame(function() {
+      overlay.classList.add('active');
+    });
+  };
+
+  window.updateModalTotal = function() {
+    if (!currentModalCost) return;
+    var def = costDefinitions[currentModalCost];
+    var qty = parseInt(sliderQty.value);
+    var occ = parseInt(sliderOcc.value) / 100;
+
+    var values = {};
+    def.inputs.forEach(function(inp) {
+      var el = document.getElementById('modal_' + inp.id);
+      var v = el ? parseFloat(el.value) : NaN;
+      values[inp.id] = isNaN(v) ? inp.default : v;
+    });
+
+    var total = def.calc(values, qty, occ);
+    document.getElementById('costModalTotal').textContent = formatCLP(total) + '/mes';
+
+    def.inputs.forEach(function(inp) {
+      var el = document.getElementById('modal_' + inp.id);
+      if (el) {
+        var v = parseFloat(el.value);
+        costOverrides[inp.id] = isNaN(v) ? inp.default : v;
+      }
+    });
+    calcSimulator();
+  };
+
+  window.closeCostModal = function() {
+    var overlay = document.getElementById('costModalOverlay');
+    overlay.classList.remove('active');
+    setTimeout(function() { overlay.style.display = 'none'; }, 300);
+    currentModalCost = null;
+  };
+
+  window.applyCostOverride = function() {
+    if (!currentModalCost) return;
+
+    if (currentModalCost === 'insurance') {
+      window.closeCostModal();
+      calcSimulator();
+      var rate = costOverrides.costInsurancePerUnit || 1531;
+      var flowEl = document.getElementById('flowInsurance');
+      if (flowEl) flowEl.textContent = '-$' + rate.toLocaleString('es-CL');
+      return;
+    }
+
+    if (currentModalCost === 'revenue') {
+      window.closeCostModal();
+      return;
+    }
+
+    var def = costDefinitions[currentModalCost];
+    def.inputs.forEach(function(inp) {
+      var el = document.getElementById('modal_' + inp.id);
+      if (el) {
+        var v = parseFloat(el.value);
+        costOverrides[inp.id] = isNaN(v) ? inp.default : v;
+      }
+    });
+
+    window.closeCostModal();
+    calcSimulator();
+  };
+
+  // ============================================
+  // INSURANCE MODAL (especializado)
+  // ============================================
+  window.openInsuranceModal = function() {
+    var qty = parseInt(sliderQty.value);
+    var currentPlan = costOverrides.insurancePlan || 'full';
+    var discount = qty >= 500 ? 0.30 : qty >= 300 ? 0.20 : qty >= 200 ? 0.15 : qty >= 100 ? 0.10 : 0;
+
+    var plans = [
+      { id: 'basico', name: 'Basico', price: 328, desc: 'Solo robo con fuerza', tag: null,
+        covers: ['Robo con fuerza en bodega', 'Robo con violencia en terreno', 'Deducible: 15-20% del valor'] },
+      { id: 'estandar', name: 'Estandar', price: 875, desc: 'Robo + daños accidentales', tag: null,
+        covers: ['Todo lo del plan basico', 'Daños accidentales (vuelco, colision)', 'Daños por terceros', 'Deducible: 5-10% del valor'] },
+      { id: 'full', name: 'Todo Riesgo', price: 1531, desc: 'Cobertura completa', tag: 'Recomendado',
+        covers: ['Todo lo del plan estandar', 'Vandalismo', 'Catastrofes naturales', 'Responsabilidad civil', 'Deducible: $50.000-$150.000 por evento'] },
+      { id: 'none', name: 'Sin Seguro', price: 0, desc: 'Autoseguro (asumir riesgo)', tag: null,
+        covers: ['Sin cobertura externa', 'Requiere fondo de reserva propio', 'Recomendado solo con 200+ unidades', 'Riesgo: evento catastrofico sin cobertura'] }
+    ];
+
+    var modalTitle = document.getElementById('costModalTitle');
+    var modalDesc = document.getElementById('costModalDesc');
+    var modalFormula = document.getElementById('costModalFormula');
+    var modalInputs = document.getElementById('costModalInputs');
+    var modalNote = document.getElementById('costModalNote');
+
+    modalTitle.textContent = 'Seguros de Flota — Selecciona un plan';
+    modalDesc.textContent = 'Seguro de Equipo Movil Contratista (EMC). El costo se calcula en base al valor promedio del baño ($525.000 CLP) y el volumen de tu flota. Selecciona el nivel de cobertura que prefieras.';
+
+    // Informacion de descuento por volumen
+    var discountInfo = '<strong>Descuento por volumen (' + qty + ' unidades):</strong> ';
+    if (discount > 0) {
+      discountInfo += '<span style="color:var(--success); font-weight:700;">-' + Math.round(discount * 100) + '%</span>';
+    } else {
+      discountInfo += 'Sin descuento (min. 100 unidades)';
+    }
+    modalFormula.innerHTML = discountInfo + '<br><br><div class="insurance-volume-discount"><div class="insurance-volume-discount-title">Tabla de descuentos</div>' +
+      '<div class="insurance-discount-row' + (qty >= 100 && qty < 200 ? ' active-discount' : '') + '"><span>100-199 unidades</span><span>10% descuento</span></div>' +
+      '<div class="insurance-discount-row' + (qty >= 200 && qty < 300 ? ' active-discount' : '') + '"><span>200-299 unidades</span><span>15% descuento</span></div>' +
+      '<div class="insurance-discount-row' + (qty >= 300 && qty < 500 ? ' active-discount' : '') + '"><span>300-499 unidades</span><span>20% descuento</span></div>' +
+      '<div class="insurance-discount-row' + (qty >= 500 ? ' active-discount' : '') + '"><span>500+ unidades</span><span>30% descuento</span></div>' +
+      '</div>';
+
+    // Construir tarjetas de planes
+    var plansHtml = '<div class="insurance-plans">';
+    plans.forEach(function(p) {
+      var finalPrice = Math.round(p.price * (1 - discount));
+      var isSelected = currentPlan === p.id;
+      var isNone = p.id === 'none';
+      plansHtml += '<div class="insurance-plan' + (isSelected ? ' selected' : '') + (isNone ? ' disabled-plan' : '') + '" onclick="selectInsurancePlan(\'' + p.id + '\')" data-plan="' + p.id + '" data-base-price="' + p.price + '">';
+      if (p.tag) plansHtml += '<div class="insurance-plan-tag">' + p.tag + '</div>';
+      plansHtml += '<div class="insurance-plan-check">&#10003;</div>';
+      plansHtml += '<div class="insurance-plan-name">' + p.name + '</div>';
+      plansHtml += '<div class="insurance-plan-price">' + (isNone ? '$0' : '$' + finalPrice.toLocaleString('es-CL')) + '<span style="font-size:0.7rem;font-weight:400;color:var(--text-muted);">/mes x unidad</span></div>';
+      plansHtml += '<div class="insurance-plan-desc">' + p.desc + '</div>';
+      plansHtml += '<div class="insurance-plan-covers">';
+      p.covers.forEach(function(c) { plansHtml += '<span>' + (isNone ? '- ' : '+ ') + c + '</span>'; });
+      plansHtml += '</div></div>';
+    });
+    plansHtml += '</div>';
+
+    modalInputs.innerHTML = plansHtml;
+
+    // Calcular total actual
+    var currentRate = plans.find(function(p) { return p.id === currentPlan; });
+    var finalRate = Math.round((currentRate ? currentRate.price : 1531) * (1 - discount));
+    document.getElementById('costModalTotal').textContent = formatCLP(finalRate * qty) + '/mes (' + formatCLP(finalRate) + ' x ' + qty + ' uds)';
+
+    modalNote.textContent = 'Datos basados en tasas reales del mercado chileno para Seguro EMC. Aseguradoras: MAPFRE, Consorcio, Reale, Chubb. Corredoras: Focus Corredores, SSSEGUROS, Howden Chile. El autoseguro es viable con 200+ unidades y data historica de siniestralidad.';
+
+    currentModalCost = 'insurance';
+
+    var overlay = document.getElementById('costModalOverlay');
+    overlay.style.display = 'flex';
+    requestAnimationFrame(function() {
+      overlay.classList.add('active');
+    });
+  };
+
+  window.selectInsurancePlan = function(planId) {
+    var qty = parseInt(sliderQty.value);
+    var discount = qty >= 500 ? 0.30 : qty >= 300 ? 0.20 : qty >= 200 ? 0.15 : qty >= 100 ? 0.10 : 0;
+    var rates = {basico: 328, estandar: 875, full: 1531, none: 0};
+
+    // Actualizar seleccion visual
+    document.querySelectorAll('.insurance-plan').forEach(function(el) {
+      el.classList.remove('selected');
+    });
+    var selected = document.querySelector('.insurance-plan[data-plan="' + planId + '"]');
+    if (selected) selected.classList.add('selected');
+
+    // Calcular y mostrar total
+    var baseRate = rates[planId] || 0;
+    var finalRate = Math.round(baseRate * (1 - discount));
+    document.getElementById('costModalTotal').textContent = formatCLP(finalRate * qty) + '/mes (' + formatCLP(finalRate) + ' x ' + qty + ' uds)';
+
+    // Guardar la seleccion de plan y recalcular simulacion en vivo
+    costOverrides.insurancePlan = planId;
+    costOverrides.costInsurancePerUnit = finalRate;
+    calcSimulator();
+    var flowEl = document.getElementById('flowInsurance');
+    if (flowEl) flowEl.textContent = '-$' + finalRate.toLocaleString('es-CL');
+  };
+
+  // ============================================
+  // REVENUE MODAL — Configurar ingresos por tipo de servicio
+  // ============================================
+  window.openRevenueModal = function() {
+    var qty = parseInt(sliderQty.value);
+    var occ = parseInt(sliderOcc.value) / 100;
+    var active = Math.round(qty * occ);
+
+    var rm = costOverrides.revMensual || {};
+    var rs = costOverrides.revSemanal || {};
+    var rd = costOverrides.revDiario || {};
+
+    // Defaults basados en data real de 26 servicios (abr-may 2026) — PRECIO POR BAÑO
+    var pctMensual = rm.pct !== undefined ? rm.pct : 62;
+    var pctSemanal = rs.pct !== undefined ? rs.pct : 11;
+    var pctDiario = rd.pct !== undefined ? rd.pct : 27;
+
+    var precioMensual1 = rm.precio1 !== undefined ? rm.precio1 : 180000;
+    var precioMensualBulk = rm.precioBulk !== undefined ? rm.precioBulk : 150000;
+    var umbralBulkM = rm.umbralBulk !== undefined ? rm.umbralBulk : 2;
+
+    var precioSemanal1 = rs.precio1 !== undefined ? rs.precio1 : 100000;
+    var precioSemanalBulk = rs.precioBulk !== undefined ? rs.precioBulk : 85000;
+    var umbralBulkS = rs.umbralBulk !== undefined ? rs.umbralBulk : 3;
+    var semanasCliente = rs.semanasCliente !== undefined ? rs.semanasCliente : 2;
+
+    var precioDiario1 = rd.precio1 !== undefined ? rd.precio1 : 100000;
+    var precioDiarioBulk = rd.precioBulk !== undefined ? rd.precioBulk : 80000;
+    var umbralBulkD = rd.umbralBulk !== undefined ? rd.umbralBulk : 2;
+    var eventosCliente = rd.eventosCliente !== undefined ? rd.eventosCliente : 3;
+
+    var modalTitle = document.getElementById('costModalTitle');
+    var modalDesc = document.getElementById('costModalDesc');
+    var modalFormula = document.getElementById('costModalFormula');
+    var modalInputs = document.getElementById('costModalInputs');
+    var modalNote = document.getElementById('costModalNote');
+
+    modalTitle.textContent = 'Configuracion de Ingresos por Tipo de Servicio';
+    modalDesc.textContent = 'Valores precargados con data real de 26 servicios entregados entre abril-mayo 2026. Ajusta segun tu proyeccion.';
+    modalFormula.innerHTML = '<strong style="color:var(--gold);">Data real de clientes (abr-may 2026, 26 servicios, 31 baños) — precio por baño:</strong><br><br>' +
+      '<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;font-size:0.78rem;color:var(--text-primary);">' +
+      '<div style="background:rgba(0,119,204,0.08);padding:12px;border-radius:8px;border:1px solid rgba(0,119,204,0.12);"><strong style="color:var(--text-primary);">Mensual (62%)</strong><br>20 baños en 16 servicios<br>Precio por baño: <strong>$140K - $180K</strong><br>Promedio: <strong>$162K/mes</strong><br><span style="font-size:0.7rem;color:var(--text-secondary);">$180K x 9 clientes (1 baño), $155K c/u (Providencia, 2 baños), $130K c/u (Recoleta, 2 baños), $153K c/u (Obra, 2 baños), $160K (Quilicura), $140K (Maipu, Las Condes), $150K (Antupiren)</span></div>' +
+      '<div style="background:rgba(26,92,46,0.08);padding:12px;border-radius:8px;border:1px solid rgba(26,92,46,0.12);"><strong style="color:var(--text-primary);">Semanal (11%)</strong><br>3 baños en 3 servicios<br>Precio por baño: <strong>$100K - $130K/sem</strong><br>Promedio: <strong>$113K/semana</strong><br><span style="font-size:0.7rem;color:var(--text-secondary);">Lo Barnechea $100K (1 sem), Colina $110K (4 dias), Lo Barnechea $130K (10 dias)</span></div>' +
+      '<div style="background:rgba(217,119,6,0.08);padding:12px;border-radius:8px;border:1px solid rgba(217,119,6,0.12);"><strong style="color:var(--text-primary);">Diario (27%)</strong><br>8 baños en 7 servicios<br>Precio por baño: <strong>$80K - $100K/dia</strong><br>Promedio: <strong>$96K/evento</strong><br><span style="font-size:0.7rem;color:var(--text-secondary);">La Reina $100K (1 baño), Lo Barnechea $100K c/u (2 baños), Macul $100K, Las Condes $100K, La Reina $80K c/u (2 baños)</span></div>' +
+      '</div>' +
+      '<div style="margin-top:14px;text-align:center;"><button onclick="applyRealData()" style="background:var(--gradient-gold);color:white;border:none;padding:10px 24px;border-radius:8px;font-family:Nunito,sans-serif;font-weight:700;font-size:0.85rem;cursor:pointer;transition:all 0.2s;">Aplicar promedio con datos reales</button></div>';
+
+    var html = '';
+
+    // Mensual
+    html += '<div class="revenue-type-card">';
+    html += '<div class="revenue-type-header"><span class="revenue-type-name">Arriendo Mensual</span><span class="revenue-type-tag mensual">Contrato fijo</span></div>';
+    html += '<div class="revenue-inputs-grid">';
+    html += '<div class="revenue-input-sm"><label>% de la flota activa</label><input type="number" id="revMPct" value="' + pctMensual + '" oninput="calcRevenueModal()"></div>';
+    html += '<div class="revenue-input-sm"><label>Precio 1 baño (CLP/mes)</label><input type="number" id="revMPrecio1" value="' + precioMensual1 + '" oninput="calcRevenueModal()"></div>';
+    html += '<div class="revenue-input-sm"><label>Precio con cantidad (CLP/mes)</label><input type="number" id="revMPrecioBulk" value="' + precioMensualBulk + '" oninput="calcRevenueModal()"></div>';
+    html += '<div class="revenue-input-sm"><label>Desde cuantos baños aplica descuento</label><input type="number" id="revMUmbral" value="' + umbralBulkM + '" oninput="calcRevenueModal()"></div>';
+    html += '</div>';
+    html += '<div class="revenue-type-note">Incluye 3 limpiezas/mes. Precio real mas comun: $180K (9 de 16 contratos). Con 2+ baños se cobra $153K promedio (ej: Obra $306K por 2 = $153K c/u). Clientes reales: Chicureo, Providencia, Recoleta, Huechuraba, La Florida, Las Condes.</div>';
+    html += '</div>';
+
+    // Semanal
+    html += '<div class="revenue-type-card">';
+    html += '<div class="revenue-type-header"><span class="revenue-type-name">Arriendo Semanal</span><span class="revenue-type-tag semanal">Obras cortas</span></div>';
+    html += '<div class="revenue-inputs-grid">';
+    html += '<div class="revenue-input-sm"><label>% de la flota activa</label><input type="number" id="revSPct" value="' + pctSemanal + '" oninput="calcRevenueModal()"></div>';
+    html += '<div class="revenue-input-sm"><label>Precio 1 baño (CLP/semana)</label><input type="number" id="revSPrecio1" value="' + precioSemanal1 + '" oninput="calcRevenueModal()"></div>';
+    html += '<div class="revenue-input-sm"><label>Precio con cantidad (CLP/semana)</label><input type="number" id="revSPrecioBulk" value="' + precioSemanalBulk + '" oninput="calcRevenueModal()"></div>';
+    html += '<div class="revenue-input-sm"><label>Desde cuantos baños aplica descuento</label><input type="number" id="revSUmbral" value="' + umbralBulkS + '" oninput="calcRevenueModal()"></div>';
+    html += '<div class="revenue-input-sm"><label>Veces que se arrienda al mes</label><input type="number" id="revSWeeks" value="' + semanasCliente + '" oninput="calcRevenueModal()"><div style="font-size:0.65rem;color:var(--text-muted);margin-top:3px;">Cuantas veces en el mes se logra arrendar un baño semanal. Ej: si un baño se arrienda 2 semanas distintas al mes, poner 2. El resto del mes esta en bodega esperando otro cliente.</div></div>';
+    html += '</div>';
+    html += '<div class="revenue-type-note">Cada arriendo semanal es una entrega + retiro. El ingreso mensual = precio x veces que se arrienda al mes. Ej: $100.000/sem x 2 arriendos = $200.000/mes por baño.</div>';
+    html += '</div>';
+
+    // Diario
+    html += '<div class="revenue-type-card">';
+    html += '<div class="revenue-type-header"><span class="revenue-type-name">Arriendo Diario / Eventos</span><span class="revenue-type-tag diario">Eventos</span></div>';
+    html += '<div class="revenue-inputs-grid">';
+    html += '<div class="revenue-input-sm"><label>% de la flota activa</label><input type="number" id="revDPct" value="' + pctDiario + '" oninput="calcRevenueModal()"></div>';
+    html += '<div class="revenue-input-sm"><label>Precio 1 baño (CLP/dia)</label><input type="number" id="revDPrecio1" value="' + precioDiario1 + '" oninput="calcRevenueModal()"></div>';
+    html += '<div class="revenue-input-sm"><label>Precio con cantidad (CLP/dia)</label><input type="number" id="revDPrecioBulk" value="' + precioDiarioBulk + '" oninput="calcRevenueModal()"></div>';
+    html += '<div class="revenue-input-sm"><label>Desde cuantos baños aplica descuento</label><input type="number" id="revDUmbral" value="' + umbralBulkD + '" oninput="calcRevenueModal()"></div>';
+    html += '<div class="revenue-input-sm"><label>Veces que se arrienda al mes</label><input type="number" id="revDEvents" value="' + eventosCliente + '" oninput="calcRevenueModal()"><div style="font-size:0.65rem;color:var(--text-muted);margin-top:3px;">Cuantos eventos/dias distintos se arrienda un baño de eventos al mes. Ej: 3 significa que ese baño se usa en 3 eventos diferentes en el mes.</div></div>';
+    html += '</div>';
+    html += '<div class="revenue-type-note">Solo entrega y retiro. La limpieza se hace en el galpon (sin costo de ruta). Ingreso mensual = precio x veces que se arrienda. Ej: $100.000/dia x 3 eventos = $300.000/mes por baño.</div>';
+    html += '</div>';
+
+    html += '<div class="revenue-result-box" id="revenueResultBox"></div>';
+
+    modalInputs.innerHTML = html;
+    modalNote.textContent = 'Los porcentajes deben sumar 100%. El ingreso promedio ponderado se usa para la simulacion general. Los costos de limpieza solo aplican a los mensuales (los diarios se limpian en el galpon).';
+
+    currentModalCost = 'revenue';
+    calcRevenueModal();
+
+    var overlay = document.getElementById('costModalOverlay');
+    overlay.style.display = 'flex';
+    requestAnimationFrame(function() { overlay.classList.add('active'); });
+  };
+
+  window.calcRevenueModal = function() {
+    var pM = parseFloat(document.getElementById('revMPct').value) || 0;
+    var pS = parseFloat(document.getElementById('revSPct').value) || 0;
+    var pD = parseFloat(document.getElementById('revDPct').value) || 0;
+    var totalPct = pM + pS + pD;
+
+    var precioM1 = parseFloat(document.getElementById('revMPrecio1').value) || 0;
+    var precioMB = parseFloat(document.getElementById('revMPrecioBulk').value) || 0;
+    var avgM = (precioM1 + precioMB) / 2;
+
+    var precioS1 = parseFloat(document.getElementById('revSPrecio1').value) || 0;
+    var precioSB = parseFloat(document.getElementById('revSPrecioBulk').value) || 0;
+    var semanas = parseFloat(document.getElementById('revSWeeks').value) || 1;
+    var avgSWeek = (precioS1 + precioSB) / 2;
+    var avgSMonth = avgSWeek * semanas;
+
+    var precioD1 = parseFloat(document.getElementById('revDPrecio1').value) || 0;
+    var precioDB = parseFloat(document.getElementById('revDPrecioBulk').value) || 0;
+    var eventos = parseFloat(document.getElementById('revDEvents').value) || 1;
+    var avgDDay = (precioD1 + precioDB) / 2;
+    var avgDMonth = avgDDay * eventos;
+
+    var blended = 0;
+    if (totalPct > 0) {
+      blended = Math.round(((pM / 100) * avgM + (pS / 100) * avgSMonth + (pD / 100) * avgDMonth) * (100 / totalPct));
+    }
+
+    var pctWarning = totalPct !== 100 ? '<br><span style="color:var(--danger);font-weight:600;">Los porcentajes suman ' + totalPct + '% (deben sumar 100%)</span>' : '';
+
+    var box = document.getElementById('revenueResultBox');
+    box.innerHTML = '<div class="revenue-result-label">Ingreso promedio ponderado por baño activo / mes</div>' +
+      '<div class="revenue-result-value">' + formatCLP(blended) + '/mes</div>' +
+      '<div class="revenue-result-detail">' +
+      'Mensual ' + pM + '%: ~' + formatCLP(avgM) + '/mes | ' +
+      'Semanal ' + pS + '%: ~' + formatCLP(avgSMonth) + '/mes (' + semanas + ' sem x ' + formatCLP(avgSWeek) + ') | ' +
+      'Diario ' + pD + '%: ~' + formatCLP(avgDMonth) + '/mes (' + eventos + ' eventos x ' + formatCLP(avgDDay) + ')' +
+      pctWarning + '</div>';
+
+    document.getElementById('costModalTotal').textContent = formatCLP(blended) + '/mes por baño (promedio ponderado)';
+
+    // Save overrides and update simulator live
+    costOverrides.revMensual = { pct: pM, precio1: precioM1, precioBulk: precioMB, umbralBulk: parseFloat(document.getElementById('revMUmbral').value) || 3 };
+    costOverrides.revSemanal = { pct: pS, precio1: precioS1, precioBulk: precioSB, umbralBulk: parseFloat(document.getElementById('revSUmbral').value) || 5, semanasCliente: semanas };
+    costOverrides.revDiario = { pct: pD, precio1: precioD1, precioBulk: precioDB, umbralBulk: parseFloat(document.getElementById('revDUmbral').value) || 3, eventosCliente: eventos };
+    costOverrides.blendedPrice = blended;
+
+    if (blended > 0 && totalPct === 100) {
+      sliderPrice.value = Math.min(400000, Math.max(160000, blended));
+      updateSliderFill(sliderPrice);
+      document.getElementById('sliderPriceVal').textContent = formatCLP(blended);
+      calcSimulator();
+    }
+  };
+
+  window.applyRealData = function() {
+    // Data real de 26 servicios, precio POR BAÑO
+    var realData = {
+      revMensual: { pct: 62, precio1: 180000, precioBulk: 150000, umbralBulk: 2 },
+      revSemanal: { pct: 11, precio1: 100000, precioBulk: 85000, umbralBulk: 3, semanasCliente: 2 },
+      revDiario: { pct: 27, precio1: 100000, precioBulk: 80000, umbralBulk: 2, eventosCliente: 3 }
+    };
+    costOverrides.revMensual = realData.revMensual;
+    costOverrides.revSemanal = realData.revSemanal;
+    costOverrides.revDiario = realData.revDiario;
+
+    // Set input values
+    document.getElementById('revMPct').value = 62;
+    document.getElementById('revMPrecio1').value = 180000;
+    document.getElementById('revMPrecioBulk').value = 150000;
+    document.getElementById('revMUmbral').value = 2;
+    document.getElementById('revSPct').value = 11;
+    document.getElementById('revSPrecio1').value = 100000;
+    document.getElementById('revSPrecioBulk').value = 85000;
+    document.getElementById('revSUmbral').value = 3;
+    document.getElementById('revSWeeks').value = 2;
+    document.getElementById('revDPct').value = 27;
+    document.getElementById('revDPrecio1').value = 100000;
+    document.getElementById('revDPrecioBulk').value = 80000;
+    document.getElementById('revDUmbral').value = 2;
+    document.getElementById('revDEvents').value = 3;
+
+    calcRevenueModal();
+  };
+
+  function updateCashFlowChart(totalInvestment, qty, price, targetOcc, steadyCosts, steadyProfit) {
+    var labels = [];
+    var data = [];
+    var cumulative = -totalInvestment;
+    var breakEvenMonth = -1;
+
+    for (var m = 0; m <= 36; m++) {
+      labels.push('Mes ' + m);
+      if (m === 0) {
+        data.push(cumulative);
+        continue;
+      }
+      var occForMonth;
+      if (m <= 3) occForMonth = 0.50;
+      else if (m <= 6) occForMonth = 0.75;
+      else occForMonth = targetOcc;
+
+      var activeBathrooms = Math.round(qty * occForMonth);
+      var revenue = qty * occForMonth * price;
+
+      var driverPay = costOverrides.costPerDriver !== undefined ? costOverrides.costPerDriver : 600000;
+      var coordPay = costOverrides.costCoordinator !== undefined ? costOverrides.costCoordinator : 800000;
+      var adminPay = costOverrides.costAdmin !== undefined ? costOverrides.costAdmin : 500000;
+      var cfClean = costOverrides.cleaningsPerMonth || 3;
+      var cfBpr = costOverrides.bathsPerCleanRoute || 2.5;
+      var cfRpd = costOverrides.routesPerDay || 3;
+      var cfWd = costOverrides.workDaysPerMonth || 22;
+      var cfPctM = (costOverrides.pctMensual || 60) / 100;
+      var cfEpm = costOverrides.eventsPerPuntualBath || 3;
+      var cfMens = Math.round(activeBathrooms * cfPctM);
+      var cfPunt = activeBathrooms - cfMens;
+      var cfCleanRoutes = Math.ceil((cfMens * cfClean) / cfBpr);
+      var cfEventRoutes = Math.ceil((cfPunt * cfEpm * 2) / cfBpr);
+      var cfRoutes = cfCleanRoutes + cfEventRoutes;
+      var conductores = Math.max(1, Math.ceil(cfRoutes / (cfRpd * cfWd)));
+      var personal = conductores * driverPay;
+      if (qty > 60) personal += coordPay;
+      if (qty > 80) personal += adminPay;
+      if (qty > 200) personal += coordPay;
+      if (qty > 300) personal += adminPay + driverPay;
+      var bodega = costOverrides.costBodega || (qty <= 100 ? 550000 : qty <= 200 ? 850000 : qty <= 350 ? 1200000 : 1800000);
+      var mktg = costOverrides.costMarketing || (qty <= 150 ? 400000 : qty <= 300 ? 700000 : 1000000);
+      var fuelPU = costOverrides.costFuelPerUnit || 35000;
+      var routeCostCF = costOverrides.costPerRoute || 80000;
+      var bpRouteCF = costOverrides.bathsPerRoute || 2.5;
+      var fuel = fuelPU * activeBathrooms;
+      var routes = Math.ceil(activeBathrooms / bpRouteCF);
+      var sewage = routeCostCF * routes;
+      var contadorCF = costOverrides.costContador || 60000;
+      var insurancePU = costOverrides.costInsurancePerUnit || 1531;
+      var chemPU = costOverrides.costChemPerUnit || 7500;
+      var monthlyCost = personal + bodega + fuel + sewage + mktg + contadorCF + insurancePU * qty + chemPU * qty;
+      var monthProfit = revenue - monthlyCost;
+
+      cumulative += monthProfit;
+      data.push(cumulative);
+
+      if (breakEvenMonth === -1 && cumulative >= 0) {
+        breakEvenMonth = m;
+      }
+    }
+
+    var ctx = document.getElementById('cashFlowChart').getContext('2d');
+
+    if (cashFlowChart) cashFlowChart.destroy();
+
+    var gradientPos = ctx.createLinearGradient(0, 0, 0, 350);
+    gradientPos.addColorStop(0, 'rgba(26,92,46,0.3)');
+    gradientPos.addColorStop(1, 'rgba(26,92,46,0.0)');
+
+    var gradientNeg = ctx.createLinearGradient(0, 0, 0, 350);
+    gradientNeg.addColorStop(0, 'rgba(255,68,102,0.0)');
+    gradientNeg.addColorStop(1, 'rgba(255,68,102,0.2)');
+
+    // Build segment colors
+    var borderColors = data.map(function(v) { return v >= 0 ? '#22803d' : '#dc2626'; });
+    var bgColors = data.map(function(v) { return v >= 0 ? 'rgba(26,92,46,0.15)' : 'rgba(255,68,102,0.1)'; });
+
+    var annotations = {};
+    if (breakEvenMonth > 0) {
+      annotations.breakeven = {
+        type: 'line',
+        xMin: breakEvenMonth,
+        xMax: breakEvenMonth,
+        borderColor: '#0077cc',
+        borderWidth: 2,
+        borderDash: [6, 4],
+        label: {
+          display: true,
+          content: 'Break-even: Mes ' + breakEvenMonth,
+          position: 'start',
+          backgroundColor: 'rgba(0,119,204,0.15)',
+          color: '#0077cc',
+          font: { size: 11, family: 'Nunito', weight: '600' },
+          padding: 6
+        }
+      };
+    }
+
+    cashFlowChart = new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: labels,
+        datasets: [{
+          label: 'Flujo acumulado',
+          data: data,
+          borderColor: '#22803d',
+          borderWidth: 2,
+          fill: true,
+          backgroundColor: function(context) {
+            var chart = context.chart;
+            var ctx2 = chart.ctx;
+            var chartArea = chart.chartArea;
+            if (!chartArea) return null;
+            var gradient = ctx2.createLinearGradient(0, chartArea.top, 0, chartArea.bottom);
+            gradient.addColorStop(0, 'rgba(26,92,46,0.2)');
+            gradient.addColorStop(0.5, 'rgba(26,92,46,0.05)');
+            gradient.addColorStop(1, 'rgba(255,68,102,0.1)');
+            return gradient;
+          },
+          tension: 0.4,
+          pointRadius: 0,
+          pointHoverRadius: 6,
+          pointHoverBackgroundColor: '#22803d',
+          pointHoverBorderColor: '#fff',
+          pointHoverBorderWidth: 2,
+          segment: {
+            borderColor: function(ctx) {
+              return ctx.p1.parsed.y >= 0 ? '#22803d' : '#dc2626';
+            }
+          }
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        interaction: { intersect: false, mode: 'index' },
+        plugins: {
+          legend: { display: false },
+          tooltip: {
+            backgroundColor: 'rgba(255,255,255,0.95)',
+            borderColor: 'rgba(26,92,46,0.2)',
+            borderWidth: 1,
+            titleFont: { family: 'Nunito', size: 13 },
+            bodyFont: { family: 'Nunito Sans', size: 12 },
+            titleColor: '#1a1f2e',
+            bodyColor: '#4a5568',
+            padding: 12,
+            callbacks: {
+              label: function(ctx) { return formatCLP(ctx.parsed.y); }
+            }
+          },
+          annotation: { annotations: annotations }
+        },
+        scales: {
+          x: {
+            grid: { color: 'rgba(0,0,0,0.03)' },
+            ticks: {
+              color: '#8896a6',
+              font: { family: 'Nunito Sans', size: 10 },
+              maxTicksLimit: 12
+            }
+          },
+          y: {
+            grid: { color: 'rgba(0,0,0,0.03)' },
+            ticks: {
+              color: '#8896a6',
+              font: { family: 'Nunito Sans', size: 10 },
+              callback: function(v) { return formatCompact(v); }
+            }
+          }
+        }
+      }
+    });
+  }
+
+  // Slider events
+  [sliderQty, sliderCost, sliderPrice, sliderOcc].forEach(function(s) {
+    s.addEventListener('input', calcSimulator);
+  });
+
+  // ============================================
+  // SCENARIO QUICK SELECT
+  // ============================================
+  window.applyScenario = function(card) {
+    document.querySelectorAll('.scenario-card').forEach(function(c) { c.classList.remove('active'); });
+    card.classList.add('active');
+
+    var targetQty = parseInt(card.getAttribute('data-qty'));
+    var targetCost = parseInt(card.getAttribute('data-cost'));
+    var targetPrice = parseInt(card.getAttribute('data-price'));
+    var targetOcc = parseInt(card.getAttribute('data-occ'));
+
+    animateSlider(sliderQty, targetQty);
+    animateSlider(sliderCost, targetCost);
+    animateSlider(sliderPrice, targetPrice);
+    animateSlider(sliderOcc, targetOcc);
+  };
+
+  function animateSlider(slider, target) {
+    var start = parseFloat(slider.value);
+    var diff = target - start;
+    var duration = 600;
+    var startTime = null;
+
+    function step(ts) {
+      if (!startTime) startTime = ts;
+      var progress = Math.min((ts - startTime) / duration, 1);
+      var eased = easeOutExpo(progress);
+      slider.value = Math.round(start + diff * eased);
+      calcSimulator();
+      if (progress < 1) requestAnimationFrame(step);
+    }
+
+    requestAnimationFrame(step);
+  }
+
+  // ============================================
+  // SCENARIOS COMPARED (Section 7)
+  // ============================================
+  var scenarioConfigs = [
+    { name: 'Base', qty: 100, cost: 650000, price: 160000, occ: 0.70 },
+    { name: 'Moderado', qty: 150, cost: 600000, price: 170000, occ: 0.76, recommended: true },
+    { name: 'Agresivo', qty: 300, cost: 550000, price: 170000, occ: 0.80 },
+    { name: 'Lider Regional', qty: 500, cost: 500000, price: 175000, occ: 0.85 }
+  ];
+
+  function calcScenario(s) {
+    var activeBathrooms = Math.round(s.qty * s.occ);
+    var revenue = s.qty * s.occ * s.price;
+
+    var scClean = costOverrides.cleaningsPerMonth || 3;
+    var scBpr = costOverrides.bathsPerCleanRoute || 2.5;
+    var scRpd = costOverrides.routesPerDay || 3;
+    var scWd = costOverrides.workDaysPerMonth || 22;
+    var scPctM = (costOverrides.pctMensual || 60) / 100;
+    var scEpm = costOverrides.eventsPerPuntualBath || 3;
+    var scMens = Math.round(activeBathrooms * scPctM);
+    var scPunt = activeBathrooms - scMens;
+    var scCleanRoutes = Math.ceil((scMens * scClean) / scBpr);
+    var scEventRoutes = Math.ceil((scPunt * scEpm * 2) / scBpr);
+    var scTotalRoutes = scCleanRoutes + scEventRoutes;
+    var conductores = Math.max(1, Math.ceil(scTotalRoutes / (scRpd * scWd)));
+    var dPay = costOverrides.costPerDriver !== undefined ? costOverrides.costPerDriver : 600000;
+    var personal = conductores * dPay;
+    if (s.qty > 60) personal += (costOverrides.costCoordinator !== undefined ? costOverrides.costCoordinator : 800000);
+    if (s.qty > 80) personal += (costOverrides.costAdmin !== undefined ? costOverrides.costAdmin : 500000);
+    if (s.qty > 200) personal += (costOverrides.costCoordinator !== undefined ? costOverrides.costCoordinator : 800000);
+    if (s.qty > 300) personal += (costOverrides.costAdmin !== undefined ? costOverrides.costAdmin : 500000) + dPay;
+
+    var fuel = (costOverrides.costFuelPerUnit || 35000) * activeBathrooms;
+    var routes = Math.ceil(activeBathrooms / (costOverrides.bathsPerRoute || 2.5));
+    var sewage = 80000 * routes;
+    var bodega = s.qty <= 100 ? 550000 : s.qty <= 200 ? 850000 : s.qty <= 350 ? 1200000 : 1800000;
+    var marketing = s.qty <= 150 ? 400000 : s.qty <= 300 ? 700000 : 1000000;
+    var costs = personal + bodega + fuel + sewage + marketing + 60000 + (costOverrides.costInsurancePerUnit || 1531) * s.qty + 7500 * s.qty;
+    var monthlyProfit = revenue - costs;
+    var fleetCost = s.qty * s.cost;
+    var workingCap = costs * 3;
+    var totalInv = fleetCost + workingCap + 3000000;
+    var annualProfit = monthlyProfit * 12;
+    var payback = monthlyProfit > 0 ? totalInv / monthlyProfit : 999;
+    var roi1 = totalInv > 0 ? (annualProfit / totalInv) * 100 : 0;
+    var roi3 = totalInv > 0 ? ((annualProfit * 3) / totalInv) * 100 : 0;
+
+    return {
+      investment: totalInv,
+      monthlyRevenue: revenue,
+      monthlyProfit: monthlyProfit,
+      annualProfit: annualProfit,
+      payback: payback,
+      roi1: roi1,
+      roi3: roi3
+    };
+  }
+
+  function buildScenariosGrid() {
+    var grid = document.getElementById('scenariosGrid');
+    grid.innerHTML = '';
+
+    scenarioConfigs.forEach(function(s) {
+      var r = calcScenario(s);
+      var col = document.createElement('div');
+      col.className = 'scenario-col fade-in' + (s.recommended ? ' recommended gradient-border' : '');
+
+      var badge = s.recommended ? '<div class="scenario-badge">Recomendado</div>' : '<div style="height:26px;"></div>';
+
+      col.innerHTML = badge +
+        '<div class="scenario-col-name">' + s.name + '</div>' +
+        '<div class="scenario-col-units">' + s.qty + ' baños / ' + Math.round(s.occ * 100) + '% occ.</div>' +
+        '<div class="scenario-metric"><div class="scenario-metric-label">Inversion total</div><div class="scenario-metric-value">' + formatCLP(r.investment) + '</div></div>' +
+        '<div class="scenario-metric"><div class="scenario-metric-label">Ingreso mensual</div><div class="scenario-metric-value gold">' + formatCLP(r.monthlyRevenue) + '</div></div>' +
+        '<div class="scenario-metric"><div class="scenario-metric-label">Utilidad mensual</div><div class="scenario-metric-value teal">' + formatCLP(r.monthlyProfit) + '</div></div>' +
+        '<div class="scenario-metric"><div class="scenario-metric-label">Utilidad anual</div><div class="scenario-metric-value teal">' + formatCLP(r.annualProfit) + '</div></div>' +
+        '<div class="scenario-metric"><div class="scenario-metric-label">Payback</div><div class="scenario-metric-value">' + (r.payback < 100 ? r.payback.toFixed(1) + ' meses' : 'N/A') + '</div></div>' +
+        '<div class="scenario-metric"><div class="scenario-metric-label">ROI Ano 1</div><div class="scenario-metric-value gold">' + r.roi1.toFixed(0) + '%</div></div>' +
+        '<div class="scenario-metric"><div class="scenario-metric-label">ROI Ano 3</div><div class="scenario-metric-value gold">' + r.roi3.toFixed(0) + '%</div></div>';
+
+      grid.appendChild(col);
+      observer.observe(col);
+    });
+  }
+
+  function buildScenariosChart() {
+    var labels = scenarioConfigs.map(function(s) { return s.name; });
+    var investments = [];
+    var annualProfits = [];
+    var roi1s = [];
+
+    scenarioConfigs.forEach(function(s) {
+      var r = calcScenario(s);
+      investments.push(r.investment);
+      annualProfits.push(r.annualProfit);
+      roi1s.push(r.roi1);
+    });
+
+    var ctx = document.getElementById('scenariosChart').getContext('2d');
+    new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: labels,
+        datasets: [
+          {
+            label: 'Inversion total',
+            data: investments,
+            backgroundColor: 'rgba(26,92,46,0.3)',
+            borderColor: '#1a5c2e',
+            borderWidth: 1,
+            borderRadius: 6
+          },
+          {
+            label: 'Utilidad anual',
+            data: annualProfits,
+            backgroundColor: 'rgba(0,119,204,0.3)',
+            borderColor: '#0077cc',
+            borderWidth: 1,
+            borderRadius: 6
+          }
+        ]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: {
+            labels: {
+              color: '#4a5568',
+              font: { family: 'Nunito Sans', size: 11 },
+              usePointStyle: true,
+              pointStyle: 'rect'
+            }
+          },
+          tooltip: {
+            backgroundColor: 'rgba(255,255,255,0.95)',
+            borderColor: 'rgba(26,92,46,0.2)',
+            borderWidth: 1,
+            titleFont: { family: 'Nunito', size: 13 },
+            bodyFont: { family: 'Nunito Sans', size: 12 },
+            titleColor: '#1a1f2e',
+            bodyColor: '#4a5568',
+            padding: 12,
+            callbacks: {
+              label: function(ctx) { return ctx.dataset.label + ': ' + formatCLP(ctx.parsed.y); }
+            }
+          }
+        },
+        scales: {
+          x: {
+            grid: { color: 'rgba(0,0,0,0.03)' },
+            ticks: { color: '#4a5568', font: { family: 'Nunito', size: 12, weight: '600' } }
+          },
+          y: {
+            grid: { color: 'rgba(0,0,0,0.03)' },
+            ticks: {
+              color: '#8896a6',
+              font: { family: 'Nunito Sans', size: 10 },
+              callback: function(v) { return formatCompact(v); }
+            }
+          }
+        }
+      }
+    });
+  }
+
+  // ============================================
+  // MARKET CHART (Section 3)
+  // ============================================
+  function buildMarketChart() {
+    var ctx = document.getElementById('marketChart').getContext('2d');
+    new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: ['Construccion', 'Eventos', 'Municipal', 'Agroindustria', 'Mineria'],
+        datasets: [{
+          label: 'Potencial mensual (CLP)',
+          data: [180000000, 85000000, 120000000, 95000000, 60000000],
+          backgroundColor: [
+            'rgba(26,92,46,0.4)',
+            'rgba(0,119,204,0.4)',
+            'rgba(26,92,46,0.3)',
+            'rgba(0,119,204,0.3)',
+            'rgba(26,92,46,0.2)'
+          ],
+          borderColor: [
+            '#1a5c2e',
+            '#0077cc',
+            '#1a5c2e',
+            '#0077cc',
+            '#1a5c2e'
+          ],
+          borderWidth: 1,
+          borderRadius: 8
+        }]
+      },
+      options: {
+        indexAxis: 'y',
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: { display: false },
+          tooltip: {
+            backgroundColor: 'rgba(255,255,255,0.95)',
+            borderColor: 'rgba(26,92,46,0.2)',
+            borderWidth: 1,
+            titleFont: { family: 'Nunito', size: 13 },
+            bodyFont: { family: 'Nunito Sans', size: 12 },
+            titleColor: '#1a1f2e',
+            bodyColor: '#4a5568',
+            padding: 12,
+            callbacks: { label: function(ctx) { return formatCLP(ctx.parsed.x); } }
+          }
+        },
+        scales: {
+          x: {
+            grid: { color: 'rgba(0,0,0,0.03)' },
+            ticks: {
+              color: '#8896a6',
+              font: { family: 'Nunito Sans', size: 10 },
+              callback: function(v) { return formatCompact(v); }
+            }
+          },
+          y: {
+            grid: { display: false },
+            ticks: { color: '#4a5568', font: { family: 'Nunito', size: 12, weight: '600' } }
+          }
+        }
+      }
+    });
+  }
+
+  // ============================================
+  // PROJECTION CHART (Section 9)
+  // ============================================
+  function buildProjectionChart() {
+    var labels = [];
+    var revenueData = [];
+    var profitData = [];
+
+    // Monthly data for 36 months
+    for (var m = 1; m <= 36; m++) {
+      labels.push('M' + m);
+
+      var bathrooms, occ;
+      if (m <= 12) {
+        bathrooms = 150;
+        if (m <= 3) occ = 0.50;
+        else if (m <= 6) occ = 0.65;
+        else occ = 0.76;
+      } else if (m <= 24) {
+        bathrooms = 300;
+        occ = 0.80;
+      } else {
+        bathrooms = 500;
+        occ = 0.85;
+      }
+
+      var active = Math.round(bathrooms * occ);
+      var revenue = bathrooms * occ * 170000;
+
+      var pjClean = costOverrides.cleaningsPerMonth || 3;
+      var pjBpr = costOverrides.bathsPerCleanRoute || 2.5;
+      var pjRpd = costOverrides.routesPerDay || 3;
+      var pjWd = costOverrides.workDaysPerMonth || 22;
+      var pjPctM = (costOverrides.pctMensual || 60) / 100;
+      var pjEpm = costOverrides.eventsPerPuntualBath || 3;
+      var pjMens = Math.round(active * pjPctM);
+      var pjPunt = active - pjMens;
+      var pjCleanRoutes = Math.ceil((pjMens * pjClean) / pjBpr);
+      var pjEventRoutes = Math.ceil((pjPunt * pjEpm * 2) / pjBpr);
+      var pjTotalRoutes = pjCleanRoutes + pjEventRoutes;
+      var conductores = Math.max(1, Math.ceil(pjTotalRoutes / (pjRpd * pjWd)));
+      var personal = conductores * (costOverrides.costPerDriver !== undefined ? costOverrides.costPerDriver : 600000);
+      if (bathrooms > 60) personal += (costOverrides.costCoordinator !== undefined ? costOverrides.costCoordinator : 800000);
+      if (bathrooms > 80) personal += (costOverrides.costAdmin !== undefined ? costOverrides.costAdmin : 500000);
+      if (bathrooms > 200) personal += (costOverrides.costCoordinator !== undefined ? costOverrides.costCoordinator : 800000);
+      if (bathrooms > 300) personal += (costOverrides.costAdmin !== undefined ? costOverrides.costAdmin : 500000) + (costOverrides.costPerDriver !== undefined ? costOverrides.costPerDriver : 600000);
+      var bodega = bathrooms <= 100 ? 550000 : bathrooms <= 200 ? 850000 : bathrooms <= 350 ? 1200000 : 1800000;
+      var mktg = bathrooms <= 150 ? 400000 : bathrooms <= 300 ? 700000 : 1000000;
+
+      var fuel = (costOverrides.costFuelPerUnit || 35000) * active;
+      var routes = Math.ceil(active / (costOverrides.bathsPerRoute || 2.5));
+      var sewage = (costOverrides.costPerRoute || 80000) * routes;
+      var costs = personal + bodega + fuel + sewage + mktg + (costOverrides.costContador || 60000) + (costOverrides.costInsurancePerUnit || 1531) * bathrooms + (costOverrides.costChemPerUnit || 7500) * bathrooms;
+
+      var profit = revenue - costs;
+
+      revenueData.push(revenue);
+      profitData.push(profit);
+    }
+
+    var ctx = document.getElementById('projectionChart').getContext('2d');
+
+    new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: labels,
+        datasets: [
+          {
+            label: 'Revenue mensual',
+            data: revenueData,
+            borderColor: '#22803d',
+            borderWidth: 2,
+            fill: true,
+            backgroundColor: function(context) {
+              var chart = context.chart;
+              var ctx2 = chart.ctx;
+              var area = chart.chartArea;
+              if (!area) return null;
+              var g = ctx2.createLinearGradient(0, area.top, 0, area.bottom);
+              g.addColorStop(0, 'rgba(34,128,61,0.2)');
+              g.addColorStop(1, 'rgba(34,128,61,0.0)');
+              return g;
+            },
+            tension: 0.4,
+            pointRadius: 0,
+            pointHoverRadius: 5,
+            order: 1
+          },
+          {
+            label: 'Utilidad mensual',
+            data: profitData,
+            borderColor: '#0077cc',
+            borderWidth: 2,
+            fill: true,
+            backgroundColor: function(context) {
+              var chart = context.chart;
+              var ctx2 = chart.ctx;
+              var area = chart.chartArea;
+              if (!area) return null;
+              var g = ctx2.createLinearGradient(0, area.top, 0, area.bottom);
+              g.addColorStop(0, 'rgba(0,119,204,0.15)');
+              g.addColorStop(1, 'rgba(0,119,204,0.0)');
+              return g;
+            },
+            tension: 0.4,
+            pointRadius: 0,
+            pointHoverRadius: 5,
+            order: 2
+          }
+        ]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        interaction: { intersect: false, mode: 'index' },
+        plugins: {
+          legend: {
+            labels: {
+              color: '#4a5568',
+              font: { family: 'Nunito Sans', size: 11 },
+              usePointStyle: true,
+              pointStyle: 'circle'
+            }
+          },
+          tooltip: {
+            backgroundColor: 'rgba(255,255,255,0.95)',
+            borderColor: 'rgba(26,92,46,0.2)',
+            borderWidth: 1,
+            titleFont: { family: 'Nunito', size: 13 },
+            bodyFont: { family: 'Nunito Sans', size: 12 },
+            titleColor: '#1a1f2e',
+            bodyColor: '#4a5568',
+            padding: 12,
+            callbacks: { label: function(ctx) { return ctx.dataset.label + ': ' + formatCLP(ctx.parsed.y); } }
+          },
+          annotation: {
+            annotations: {
+              year1: {
+                type: 'line',
+                xMin: 11.5,
+                xMax: 11.5,
+                borderColor: 'rgba(26,92,46,0.2)',
+                borderWidth: 1,
+                borderDash: [4, 4],
+                label: { display: true, content: 'Ano 2', position: 'start', backgroundColor: 'rgba(26,92,46,0.1)', color: '#1a5c2e', font: { size: 10, family: 'Nunito' }, padding: 4 }
+              },
+              year2: {
+                type: 'line',
+                xMin: 23.5,
+                xMax: 23.5,
+                borderColor: 'rgba(26,92,46,0.2)',
+                borderWidth: 1,
+                borderDash: [4, 4],
+                label: { display: true, content: 'Ano 3', position: 'start', backgroundColor: 'rgba(26,92,46,0.1)', color: '#1a5c2e', font: { size: 10, family: 'Nunito' }, padding: 4 }
+              }
+            }
+          }
+        },
+        scales: {
+          x: {
+            grid: { color: 'rgba(0,0,0,0.03)' },
+            ticks: { color: '#8896a6', font: { family: 'Nunito Sans', size: 10 }, maxTicksLimit: 12 }
+          },
+          y: {
+            grid: { color: 'rgba(0,0,0,0.03)' },
+            ticks: {
+              color: '#8896a6',
+              font: { family: 'Nunito Sans', size: 10 },
+              callback: function(v) { return formatCompact(v); }
+            }
+          }
+        }
+      }
+    });
+  }
+
+  // ============================================
+  // ALLOCATION PIE CHART (Section 10)
+  // ============================================
+  function buildAllocationChart() {
+    var ctx = document.getElementById('allocationChart').getContext('2d');
+    new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+        labels: ['Flota (74%)', 'Capital de trabajo (10%)', 'Bodega/infra (9%)', 'Marketing (4%)', 'Equipo/herr. (3%)'],
+        datasets: [{
+          data: [51.6, 7, 6, 3, 2],
+          backgroundColor: [
+            'rgba(26,92,46,0.6)',
+            'rgba(0,119,204,0.5)',
+            'rgba(138,164,208,0.4)',
+            'rgba(34,128,61,0.4)',
+            'rgba(0,168,138,0.3)'
+          ],
+          borderColor: [
+            '#1a5c2e',
+            '#0077cc',
+            '#5b8def',
+            '#22803d',
+            '#005fa3'
+          ],
+          borderWidth: 1,
+          hoverOffset: 8
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        cutout: '65%',
+        plugins: {
+          legend: {
+            position: 'right',
+            labels: {
+              color: '#4a5568',
+              font: { family: 'Nunito Sans', size: 12 },
+              padding: 16,
+              usePointStyle: true,
+              pointStyle: 'rect'
+            }
+          },
+          tooltip: {
+            backgroundColor: 'rgba(255,255,255,0.95)',
+            borderColor: 'rgba(26,92,46,0.2)',
+            borderWidth: 1,
+            titleFont: { family: 'Nunito', size: 13 },
+            bodyFont: { family: 'Nunito Sans', size: 12 },
+            titleColor: '#1a1f2e',
+            bodyColor: '#4a5568',
+            padding: 12,
+            callbacks: { label: function(ctx) { return ctx.label + ': $' + ctx.parsed + 'M CLP'; } }
+          }
+        }
+      }
+    });
+  }
+
+  // ============================================
+  // INITIALIZE EVERYTHING
+  // ============================================
+  function init() {
+    calcSimulator();
+    buildScenariosGrid();
+    buildScenariosChart();
+    buildMarketChart();
+    buildProjectionChart();
+    buildAllocationChart();
+    updateProgress();
+    updateNav();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+
+})();
+</script>
+
+<!-- Cost Detail Modal -->
+<div class="cost-modal-overlay" id="costModalOverlay" onclick="if(event.target===this)closeCostModal()">
+  <div class="cost-modal">
+    <button class="cost-modal-close" onclick="closeCostModal()">&times;</button>
+    <div class="cost-modal-title" id="costModalTitle"></div>
+    <div class="cost-modal-desc" id="costModalDesc"></div>
+    <div class="cost-modal-formula" id="costModalFormula"></div>
+    <div id="costModalInputs"></div>
+    <div class="cost-modal-result">
+      <span class="cost-modal-result-label">Total mensual calculado:</span>
+      <span class="cost-modal-result-value" id="costModalTotal">$0</span>
+    </div>
+    <button class="cost-modal-apply" onclick="applyCostOverride()">Aplicar y recalcular</button>
+    <div class="cost-modal-note" id="costModalNote"></div>
+  </div>
+</div>
+
+</body>
+</html>
