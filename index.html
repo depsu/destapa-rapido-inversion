@@ -2646,9 +2646,9 @@ footer {
       </table>
     </div>
 
-    <div class="savings-card fade-in gradient-border">
-      <div class="savings-value">$800.000 – $1.200.000/mes</div>
-      <div class="savings-label">Ahorro operativo del sistema SaaS en una flota de 150+ baños</div>
+    <div class="savings-card fade-in gradient-border sim-line-clickable" onclick="openCostModal('saasAhorro')" style="cursor:pointer;">
+      <div class="savings-value">$6.500.000+/mes <span class="sim-info-icon">?</span></div>
+      <div class="savings-label">Ahorro + ingreso adicional por el sistema SaaS en una flota de 150+ baños (click para ver desglose)</div>
     </div>
   </div>
 </section>
@@ -3687,6 +3687,61 @@ footer {
       ],
       calc: function(values) { return values.costInfra; },
       note: 'El showroom es critico: la propuesta de San Joaquin ($97.8M) se perdio porque la municipalidad quiso visitar instalaciones y no teniamos donde mostrar los baños. Esta inversion se paga con un solo contrato municipal.'
+    },
+    saasAhorro: {
+      title: 'Ahorro e Ingreso Adicional por Sistema SaaS',
+      desc: 'El sistema de gestion digital (app.destaperapido.cl) genera ahorros operativos directos y ademas aumenta los ingresos por mayor ocupacion. La competencia opera con cuadernos y llamadas — nosotros con datos en tiempo real.',
+      formula: function(qty, occ) {
+        var active = Math.round(qty * (occ || 0.76));
+        var fuelTotal = active * 35000;
+        var fuelSaving = Math.round(fuelTotal * 0.22);
+        var adminSaving = 600000;
+        var emergencyVisits = Math.round(active * 3 * 0.10);
+        var emergencySaving = emergencyVisits * 25000;
+        var occIndustry = 0.62;
+        var occOwn = occ || 0.76;
+        var occDiff = occOwn - occIndustry;
+        var revenueExtra = Math.round(qty * occDiff * 230000);
+        var total = fuelSaving + adminSaving + emergencySaving + revenueExtra;
+        return '<div style="display:grid;gap:16px;">' +
+          '<div style="background:rgba(0,119,204,0.05);padding:14px;border-radius:10px;border-left:3px solid var(--teal);">' +
+            '<strong style="color:var(--teal);">1. Optimizacion de rutas — Ahorro en bencina + TAG</strong><br>' +
+            'Sin SaaS: rutas manuales, se recorre 20-30% mas por mala planificacion y viajes repetidos a la misma zona.<br>' +
+            'Con SaaS: agrupamos baños por zona, el sistema calcula la ruta optima.<br>' +
+            '<strong>Gasto actual bencina: $' + fuelTotal.toLocaleString('es-CL') + '/mes</strong><br>' +
+            '<strong style="color:var(--teal);">Ahorro 22%: $' + fuelSaving.toLocaleString('es-CL') + '/mes</strong>' +
+          '</div>' +
+          '<div style="background:rgba(0,119,204,0.05);padding:14px;border-radius:10px;border-left:3px solid var(--teal);">' +
+            '<strong style="color:var(--teal);">2. Eliminacion de coordinador telefonico</strong><br>' +
+            'Sin SaaS: necesitas 1 persona full-time ($600K/mes) solo para coordinar entregas, retiros y limpiezas por telefono.<br>' +
+            'Con SaaS: el calendario automatico, notificaciones y WhatsApp integrado eliminan ese cargo.<br>' +
+            '<strong style="color:var(--teal);">Ahorro: $' + adminSaving.toLocaleString('es-CL') + '/mes</strong>' +
+          '</div>' +
+          '<div style="background:rgba(0,119,204,0.05);padding:14px;border-radius:10px;border-left:3px solid var(--teal);">' +
+            '<strong style="color:var(--teal);">3. Reduccion de viajes de emergencia</strong><br>' +
+            'Sin SaaS: ~15% de los viajes son por reclamos, fallas no detectadas, o baños sin insumos.<br>' +
+            'Con SaaS: tracking en tiempo real detecta problemas antes de que el cliente reclame. Se reduce a ~5%.<br>' +
+            '<strong>' + emergencyVisits + ' viajes de emergencia evitados x $25.000 c/u</strong><br>' +
+            '<strong style="color:var(--teal);">Ahorro: $' + emergencySaving.toLocaleString('es-CL') + '/mes</strong>' +
+          '</div>' +
+          '<div style="background:rgba(26,92,46,0.06);padding:14px;border-radius:10px;border-left:3px solid var(--gold);">' +
+            '<strong style="color:var(--gold);">4. Mayor ocupacion = mas ingresos (el mas importante)</strong><br>' +
+            'La industria sin tecnologia tiene ocupacion promedio de 55-65%.<br>' +
+            'Con SaaS + Google Ads + SEO mantenemos <strong>' + Math.round((occ || 0.76) * 100) + '%</strong> de ocupacion.<br>' +
+            'Diferencia: ' + Math.round(occDiff * 100) + '% mas ocupacion = ' + Math.round(qty * occDiff) + ' baños adicionales activos.<br>' +
+            '<strong>' + Math.round(qty * occDiff) + ' baños x $230.000/mes</strong><br>' +
+            '<strong style="color:var(--gold);">Ingreso adicional: $' + revenueExtra.toLocaleString('es-CL') + '/mes</strong>' +
+          '</div>' +
+          '<div style="background:var(--bg-secondary);padding:16px;border-radius:10px;text-align:center;border:2px solid var(--glass-border);">' +
+            '<span style="font-size:0.8rem;color:var(--text-secondary);">TOTAL AHORRO + INGRESO ADICIONAL MENSUAL</span><br>' +
+            '<span style="font-size:1.8rem;font-weight:800;color:var(--teal);">$' + total.toLocaleString('es-CL') + '/mes</span><br>' +
+            '<span style="font-size:0.75rem;color:var(--text-muted);">$' + (total * 12).toLocaleString('es-CL') + '/año</span>' +
+          '</div>' +
+        '</div>';
+      },
+      inputs: [],
+      calc: function(values, qty, occ) { return 0; },
+      note: 'Estos numeros son conservadores. El ahorro en bencina (22%) esta respaldado por estudios de optimizacion de rutas logisticas. La diferencia de ocupacion (62% industria vs 76% propia) esta documentada en la data real de 26 clientes. El costo de un coordinador telefonico ($600K) es el sueldo de mercado en Santiago para ese cargo.'
     }
   };
 
