@@ -2677,9 +2677,11 @@ footer {
       <div class="sim-slider-group">
         <div class="sim-slider-header">
           <span class="sim-slider-label">Costo promedio por baño</span>
-          <span class="sim-slider-value" id="sliderCostVal">$650.000</span>
+          <span class="sim-slider-value" id="sliderCostVal">$700.000</span>
         </div>
-        <input type="range" id="sliderCost" min="500000" max="900000" value="650000" step="10000">
+        <input type="range" id="sliderCost" min="650000" max="900000" value="700000" step="10000">
+        <div id="costTierLabel" style="font-size:0.72rem;margin-top:4px;font-weight:600;transition:all 0.3s;"></div>
+        <div id="costBonusLabel" style="display:none;font-size:0.7rem;margin-top:4px;padding:6px 10px;border-radius:6px;cursor:help;transition:all 0.3s;"></div>
       </div>
       <div class="sim-slider-group">
         <div class="sim-slider-header">
@@ -3219,9 +3221,52 @@ footer {
     updateSliderFill(sliderPrice);
     updateSliderFill(sliderOcc);
 
+    // Quality tier based on cost
+    var tierLabel = document.getElementById('costTierLabel');
+    var bonusLabel = document.getElementById('costBonusLabel');
+    var priceBonus = 0;
+    var occBonus = 0;
+
+    if (cost >= 900000) {
+      tierLabel.textContent = 'Baños VIP Premium — maxima calidad';
+      tierLabel.style.color = '#7c3aed';
+      priceBonus = 0.10;
+      occBonus = 0.10;
+    } else if (cost >= 800000) {
+      tierLabel.textContent = 'Baños VIP — alta calidad con lavamanos';
+      tierLabel.style.color = 'var(--teal)';
+      priceBonus = 0.05;
+      occBonus = 0.05;
+    } else if (cost >= 750000) {
+      tierLabel.textContent = 'Baños estandar con lavamanos';
+      tierLabel.style.color = 'var(--gold)';
+      priceBonus = 0;
+      occBonus = 0;
+    } else {
+      tierLabel.textContent = 'Baños basicos — funcionales sin extras';
+      tierLabel.style.color = 'var(--text-muted)';
+      priceBonus = 0;
+      occBonus = 0;
+    }
+
+    if (priceBonus > 0) {
+      bonusLabel.style.display = 'block';
+      bonusLabel.style.background = 'rgba(0,119,204,0.06)';
+      bonusLabel.style.border = '1px solid rgba(0,119,204,0.15)';
+      bonusLabel.style.color = 'var(--teal)';
+      bonusLabel.innerHTML = '<span style="font-weight:800;">+' + Math.round(priceBonus * 100) + '% ingreso</span> y <span style="font-weight:800;">+' + Math.round(occBonus * 100) + '% ocupacion</span> por calidad superior';
+      bonusLabel.title = 'Al invertir en baños de mayor calidad se puede cobrar mas por arriendo. Ademas, el boca a boca mejora, la tasa de cierre sube y es mas facil conseguir clientes confiables (constructoras, municipalidades, eventos premium). Los clientes valoran la limpieza y estado del baño.';
+    } else {
+      bonusLabel.style.display = 'none';
+    }
+
+    // Apply quality bonuses to price and occupancy
+    var effectivePrice = Math.round(price * (1 + priceBonus));
+    var effectiveOcc = Math.min(0.95, occ + occBonus);
+
     // Investment
     var fleetCost = qty * cost;
-    var activeBathrooms = Math.round(qty * occ);
+    var activeBathrooms = Math.round(qty * effectiveOcc);
 
     // Operating costs — use overrides if user has edited in modal, otherwise use defaults
     var driverPay = costOverrides.costPerDriver !== undefined ? costOverrides.costPerDriver : 600000;
@@ -3261,7 +3306,7 @@ footer {
     var totalCosts = personal + bodega + fuel + sewage + marketing + contador + insurance + chemicals;
 
     // Revenue
-    var monthlyRevenue = qty * occ * price;
+    var monthlyRevenue = qty * effectiveOcc * effectivePrice;
     var monthlyProfit = monthlyRevenue - totalCosts;
     var annualProfit = monthlyProfit * 12;
 
@@ -3313,7 +3358,7 @@ footer {
     document.getElementById('simROI3').textContent = roi3.toFixed(0) + '%';
 
     // Cash flow chart
-    updateCashFlowChart(totalInvestment, qty, price, occ, totalCosts, monthlyProfit);
+    updateCashFlowChart(totalInvestment, qty, effectivePrice, effectiveOcc, totalCosts, monthlyProfit);
   }
 
   function updateSliderFill(slider) {
