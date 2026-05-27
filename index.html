@@ -3790,12 +3790,12 @@ footer {
     var precioSemanal1 = rs.precio1 !== undefined ? rs.precio1 : 100000;
     var precioSemanalBulk = rs.precioBulk !== undefined ? rs.precioBulk : 85000;
     var umbralBulkS = rs.umbralBulk !== undefined ? rs.umbralBulk : 3;
-    var semanasCliente = rs.semanasCliente !== undefined ? rs.semanasCliente : 2;
+    var semanasCliente = rs.semanasCliente !== undefined ? rs.semanasCliente : 3;
 
     var precioDiario1 = rd.precio1 !== undefined ? rd.precio1 : 100000;
     var precioDiarioBulk = rd.precioBulk !== undefined ? rd.precioBulk : 80000;
     var umbralBulkD = rd.umbralBulk !== undefined ? rd.umbralBulk : 2;
-    var eventosCliente = rd.eventosCliente !== undefined ? rd.eventosCliente : 3;
+    var eventosCliente = rd.eventosCliente !== undefined ? rd.eventosCliente : 4;
 
     var modalTitle = document.getElementById('costModalTitle');
     var modalDesc = document.getElementById('costModalDesc');
@@ -3835,7 +3835,7 @@ footer {
     html += '<div class="revenue-input-sm"><label>Precio 1 baño (CLP/semana)</label><input type="number" id="revSPrecio1" value="' + precioSemanal1 + '" oninput="calcRevenueModal()"></div>';
     html += '<div class="revenue-input-sm"><label>Precio con cantidad (CLP/semana)</label><input type="number" id="revSPrecioBulk" value="' + precioSemanalBulk + '" oninput="calcRevenueModal()"></div>';
     html += '<div class="revenue-input-sm"><label>Desde cuantos baños aplica descuento</label><input type="number" id="revSUmbral" value="' + umbralBulkS + '" oninput="calcRevenueModal()"></div>';
-    html += '<div class="revenue-input-sm"><label>Veces que se arrienda al mes</label><input type="number" id="revSWeeks" value="' + semanasCliente + '" oninput="calcRevenueModal()"><div style="font-size:0.65rem;color:var(--text-muted);margin-top:3px;">Cuantas veces en el mes se logra arrendar un baño semanal. Ej: si un baño se arrienda 2 semanas distintas al mes, poner 2. El resto del mes esta en bodega esperando otro cliente.</div></div>';
+    html += '<div class="revenue-input-sm"><label>Arriendos por baño al mes</label><input type="number" id="revSWeeks" value="' + semanasCliente + '" oninput="calcRevenueModal()"><div style="font-size:0.65rem;color:var(--text-muted);margin-top:3px;">Cuantas semanas al mes logras arrendar cada baño semanal a distintos clientes. Ej: 3 = ese baño se arrienda 3 semanas del mes a 3 clientes diferentes.</div></div>';
     html += '</div>';
     html += '<div class="revenue-type-note">Cada arriendo semanal es una entrega + retiro. El ingreso mensual = precio x veces que se arrienda al mes. Ej: $100.000/sem x 2 arriendos = $200.000/mes por baño.</div>';
     html += '</div>';
@@ -3848,7 +3848,7 @@ footer {
     html += '<div class="revenue-input-sm"><label>Precio 1 baño (CLP/dia)</label><input type="number" id="revDPrecio1" value="' + precioDiario1 + '" oninput="calcRevenueModal()"></div>';
     html += '<div class="revenue-input-sm"><label>Precio con cantidad (CLP/dia)</label><input type="number" id="revDPrecioBulk" value="' + precioDiarioBulk + '" oninput="calcRevenueModal()"></div>';
     html += '<div class="revenue-input-sm"><label>Desde cuantos baños aplica descuento</label><input type="number" id="revDUmbral" value="' + umbralBulkD + '" oninput="calcRevenueModal()"></div>';
-    html += '<div class="revenue-input-sm"><label>Veces que se arrienda al mes</label><input type="number" id="revDEvents" value="' + eventosCliente + '" oninput="calcRevenueModal()"><div style="font-size:0.65rem;color:var(--text-muted);margin-top:3px;">Cuantos eventos/dias distintos se arrienda un baño de eventos al mes. Ej: 3 significa que ese baño se usa en 3 eventos diferentes en el mes.</div></div>';
+    html += '<div class="revenue-input-sm"><label>Eventos por baño al mes</label><input type="number" id="revDEvents" value="' + eventosCliente + '" oninput="calcRevenueModal()"><div style="font-size:0.65rem;color:var(--text-muted);margin-top:3px;">Cuantos eventos distintos atiende cada baño diario al mes. Ej: 4 = ese baño va a 4 eventos diferentes en el mes (fines de semana + alguno entre semana).</div></div>';
     html += '</div>';
     html += '<div class="revenue-type-note">Solo entrega y retiro. La limpieza se hace en el galpon (sin costo de ruta). Ingreso mensual = precio x veces que se arrienda. Ej: $100.000/dia x 3 eventos = $300.000/mes por baño.</div>';
     html += '</div>';
@@ -3924,8 +3924,8 @@ footer {
     // Data real de 26 servicios, precio POR BAÑO
     var realData = {
       revMensual: { pct: 62, precio1: 180000, precioBulk: 150000, umbralBulk: 2 },
-      revSemanal: { pct: 11, precio1: 100000, precioBulk: 85000, umbralBulk: 3, semanasCliente: 2 },
-      revDiario: { pct: 27, precio1: 100000, precioBulk: 80000, umbralBulk: 2, eventosCliente: 3 }
+      revSemanal: { pct: 11, precio1: 100000, precioBulk: 85000, umbralBulk: 3, semanasCliente: 3 },
+      revDiario: { pct: 27, precio1: 100000, precioBulk: 80000, umbralBulk: 2, eventosCliente: 4 }
     };
     costOverrides.revMensual = realData.revMensual;
     costOverrides.revSemanal = realData.revSemanal;
@@ -3940,12 +3940,12 @@ footer {
     document.getElementById('revSPrecio1').value = 100000;
     document.getElementById('revSPrecioBulk').value = 85000;
     document.getElementById('revSUmbral').value = 3;
-    document.getElementById('revSWeeks').value = 2;
+    document.getElementById('revSWeeks').value = 3;
     document.getElementById('revDPct').value = 27;
     document.getElementById('revDPrecio1').value = 100000;
     document.getElementById('revDPrecioBulk').value = 80000;
     document.getElementById('revDUmbral').value = 2;
-    document.getElementById('revDEvents').value = 3;
+    document.getElementById('revDEvents').value = 4;
 
     calcRevenueModal();
   };
