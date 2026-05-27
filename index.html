@@ -2257,7 +2257,7 @@ footer {
    RESPONSIVE
    ============================================ */
 @media (max-width: 1024px) {
-  .hero-cards { grid-template-columns: 1fr; max-width: 400px; }
+  .hero-cards { grid-template-columns: 1fr; max-width: 420px; }
   .machine-grid { grid-template-columns: 1fr; }
   .sim-controls { grid-template-columns: 1fr; }
   .sim-results { grid-template-columns: 1fr; }
@@ -2269,20 +2269,96 @@ footer {
   .team-grid { grid-template-columns: 1fr; }
   .cta-returns { grid-template-columns: 1fr; max-width: 300px; }
   .acq-total { grid-template-columns: 1fr; }
+  .comparison-table { font-size: 0.78rem; }
+  .comparison-table thead th,
+  .comparison-table tbody td { padding: 10px 12px; }
 }
 
 @media (max-width: 768px) {
-  section { padding: 80px 16px; }
-  .hero-cards { grid-template-columns: 1fr; }
-  .scenarios-grid { grid-template-columns: 1fr; }
-  .scenario-cards { grid-template-columns: 1fr; }
+  section { padding: 60px 16px; min-height: auto; }
+  .section-inner { padding: 0; }
+  .hero-title { font-size: clamp(1.8rem, 7vw, 2.8rem) !important; }
+  .hero-subtitle { font-size: clamp(0.9rem, 2.5vw, 1.1rem) !important; }
+  .hero-cards { grid-template-columns: 1fr; max-width: 100%; }
+  .hero-stat-value { font-size: clamp(1.6rem, 5vw, 2.5rem) !important; }
+  .section-title { font-size: clamp(1.5rem, 5vw, 2.2rem) !important; }
+  .section-subtitle { font-size: 0.9rem; }
+  #main-nav { top: 0; }
+  .nav-inner { gap: 2px; height: 44px; padding: 0 12px; }
+  .nav-logo { font-size: 0.8rem; margin-right: 8px; }
+  .nav-link { font-size: 0.6rem; padding: 4px 8px; }
+  .ticker-bar { height: 36px; font-size: 0.75rem; }
+  .machine-grid { grid-template-columns: 1fr; gap: 24px; }
+  .machine-flow { padding: 16px; }
+  .flow-item { padding: 10px 12px; }
+  .flow-item-label { font-size: 0.78rem; }
+  .flow-item-value { font-size: 0.85rem; }
+  .machine-highlight { grid-template-columns: 1fr; gap: 12px; }
+  .highlight-big { font-size: 1.6rem !important; }
   .market-segments { grid-template-columns: 1fr; }
   .platform-features { grid-template-columns: 1fr; }
-  .nav-inner { gap: 2px; }
-  .nav-link { font-size: 0.65rem; padding: 5px 10px; }
-  .sim-roi-row { grid-template-columns: 1fr; }
-  .cta-contact-bar { flex-direction: column; gap: 16px; }
+  .comparison-table { min-width: 500px; font-size: 0.75rem; }
+  .comparison-table thead th,
+  .comparison-table tbody td { padding: 8px 10px; }
+  .demand-cards { grid-template-columns: 1fr; }
+  .pipeline-list { grid-template-columns: 1fr; }
+  .pipeline-value { font-size: 1.2rem; }
+  .sim-controls { grid-template-columns: 1fr; gap: 16px; }
+  .sim-slider-group { padding: 16px; }
+  .sim-slider-label { font-size: 0.78rem; }
+  .sim-slider-value { font-size: 0.85rem; }
+  .sim-panel { padding: 20px 16px; }
+  .sim-line { padding: 8px 0; }
+  .sim-line-label { font-size: 0.78rem; }
+  .sim-line-value { font-size: 0.82rem; }
+  .sim-total-line { padding: 12px 0; font-size: 0.85rem; }
+  .sim-total-value { font-size: 1.1rem !important; }
+  .sim-big-result { padding: 20px 16px; }
+  .sim-big-result-value { font-size: 1.6rem !important; }
+  .sim-roi-row { grid-template-columns: repeat(3, 1fr); gap: 8px; }
+  .sim-roi-value { font-size: 1.1rem; }
+  .sim-roi-label { font-size: 0.65rem; }
+  .scenarios-grid { grid-template-columns: 1fr; }
+  .scenario-cards { grid-template-columns: 1fr; }
+  .scenario-card { padding: 12px 16px; }
+  .acquisition-grid { grid-template-columns: 1fr; }
+  .acq-total { grid-template-columns: 1fr; }
+  .acq-total-value { font-size: 1.4rem !important; }
+  .year-cards { grid-template-columns: 1fr; }
+  .cumulative-grid { grid-template-columns: 1fr; gap: 16px; }
+  .cumulative-item-value { font-size: 1.8rem !important; }
+  .team-grid { grid-template-columns: 1fr; }
+  .cta-amount { font-size: clamp(1.8rem, 6vw, 2.8rem) !important; }
+  .cta-returns { grid-template-columns: 1fr; max-width: 100%; }
+  .cta-contact-bar { flex-direction: column; gap: 12px; }
   .cta-contact-dot { display: none; }
+  .cost-modal { padding: 24px 18px; max-width: 100%; width: 96%; border-radius: 16px; max-height: 85vh; }
+  .cost-modal-title { font-size: 1.1rem; }
+  .cost-modal-desc { font-size: 0.82rem; }
+  .cost-modal-formula { font-size: 0.78rem; padding: 12px; overflow-x: auto; }
+  .cost-modal-input { padding: 10px 12px; font-size: 0.9rem; }
+  .insurance-plans { grid-template-columns: 1fr; }
+  .revenue-inputs-grid { grid-template-columns: 1fr; }
+  .revenue-type-card { padding: 14px; }
+  #scroll-progress { height: 2px; }
+  .savings-card { flex-direction: column; gap: 6px; text-align: center; }
+  .timeline-labels { flex-direction: column; gap: 4px; }
+  .timeline-label { font-size: 0.7rem; }
+}
+
+@media (max-width: 480px) {
+  section { padding: 48px 12px; }
+  .hero-title { font-size: 1.6rem !important; }
+  .hero-stat-value { font-size: 1.4rem !important; }
+  .section-title { font-size: 1.3rem !important; }
+  .nav-logo { display: none; }
+  .nav-link { font-size: 0.55rem; padding: 3px 6px; }
+  .sim-roi-row { grid-template-columns: 1fr; }
+  .highlight-big { font-size: 1.3rem !important; }
+  .cumulative-item-value { font-size: 1.5rem !important; }
+  .cta-amount { font-size: 1.6rem !important; }
+  .pipeline-value { font-size: 1rem; }
+  .cost-modal { padding: 20px 14px; }
 }
 </style>
 </head>
@@ -2358,7 +2434,7 @@ footer {
     <div class="ticker-dot"></div>
     <div class="ticker-item"><span class="ticker-value">5-8 meses</span> payback por baño</div>
     <div class="ticker-dot"></div>
-    <div class="ticker-item"><span class="ticker-value">8-10 anos</span> vida util</div>
+    <div class="ticker-item"><span class="ticker-value">8-10 años</span> vida util</div>
     <div class="ticker-dot"></div>
     <div class="ticker-item"><span class="ticker-value">+$100M</span> demanda validada</div>
     <div class="ticker-dot"></div>
@@ -2372,7 +2448,7 @@ footer {
     <div class="ticker-dot"></div>
     <div class="ticker-item"><span class="ticker-value">5-8 meses</span> payback por baño</div>
     <div class="ticker-dot"></div>
-    <div class="ticker-item"><span class="ticker-value">8-10 anos</span> vida util</div>
+    <div class="ticker-item"><span class="ticker-value">8-10 años</span> vida util</div>
     <div class="ticker-dot"></div>
     <div class="ticker-item"><span class="ticker-value">+$100M</span> demanda validada</div>
     <div class="ticker-dot"></div>
@@ -2388,7 +2464,7 @@ footer {
   <div class="section-inner">
     <div class="section-label fade-in">Unit Economics</div>
     <h2 class="section-title fade-in">Un baño. <span class="gradient-text">Una maquina de ingresos.</span></h2>
-    <p class="section-subtitle fade-in stagger-1">Cada unidad se paga sola en menos de 8 meses. Despues, es utilidad pura durante 8+ anos de vida util.</p>
+    <p class="section-subtitle fade-in stagger-1">Cada unidad se paga sola en menos de 8 meses. Despues, es utilidad pura durante 8+ años de vida util.</p>
 
     <div class="machine-grid">
       <div class="machine-flow fade-in-left">
@@ -2437,7 +2513,7 @@ footer {
     </div>
 
     <div class="machine-bottom-message fade-in">
-      Con nuestra plataforma SaaS y marketing digital constante, mantenemos una <span class="gradient-text" style="font-weight:700;">ocupacion del 76%+</span>, muy por encima del promedio de la industria (55-65%). Cada baño se paga solo y luego genera utilidad pura por 8+ anos.
+      Con nuestra plataforma SaaS y marketing digital constante, mantenemos una <span class="gradient-text" style="font-weight:700;">ocupacion del 76%+</span>, muy por encima del promedio de la industria (55-65%). Cada baño se paga solo y luego genera utilidad pura por 8+ años.
     </div>
   </div>
 </section>
@@ -2622,7 +2698,7 @@ footer {
             <li class="pipeline-item">
               <div>
                 <div class="pipeline-name">Proyecto inmobiliario Maipu</div>
-                <div class="pipeline-detail">8 baños, 2 anos</div>
+                <div class="pipeline-detail">8 baños, 2 años</div>
               </div>
               <div class="pipeline-value">$1.5M/mes</div>
             </li>
@@ -2912,7 +2988,7 @@ footer {
 <section id="proyeccion" style="background: linear-gradient(180deg, var(--bg-primary), var(--bg-secondary), var(--bg-primary));">
   <div class="section-inner">
     <div class="section-label fade-in">Proyeccion Financiera</div>
-    <h2 class="section-title fade-in">Vision a 3 anos:<br><span class="gradient-text">de operador local a lider regional.</span></h2>
+    <h2 class="section-title fade-in">Vision a 3 años:<br><span class="gradient-text">de operador local a lider regional.</span></h2>
 
     <div class="projection-chart-container fade-in">
       <div class="projection-chart-wrapper">
@@ -2945,7 +3021,7 @@ footer {
     </div>
 
     <div class="cumulative-box fade-in">
-      <h3 style="font-family:'Nunito',sans-serif; text-align:center; font-size:1.1rem; color:var(--text-secondary); margin-bottom:32px;">Acumulado 3 anos</h3>
+      <h3 style="font-family:'Nunito',sans-serif; text-align:center; font-size:1.1rem; color:var(--text-secondary); margin-bottom:32px;">Acumulado 3 años</h3>
       <div class="cumulative-grid">
         <div>
           <div class="cumulative-item-value gold" data-count="1578" data-prefix="~$" data-suffix="M" data-display="1578">~$1.578M</div>
